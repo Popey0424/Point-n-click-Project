@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
    
 
     //private objects
-    private Vector2 targetpostion;
+    private Vector2 targetposition;
 
 
     [Header("Debug")]
@@ -29,8 +29,9 @@ public class PlayerMovement : MonoBehaviour
             if (hit.collider != null)
             {
                 
-                targetpostion = hit.point;
+                targetposition = hit.point;
                 isMoving = true;
+                FlipSprite(targetposition.x);
             }
         }
         if (isMoving)
@@ -41,13 +42,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveToTarget()
     {
-        transform.position = Vector2.MoveTowards(transform.position, targetpostion, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetposition, moveSpeed * Time.deltaTime);
 
         
-        if (Vector2.Distance(transform.position, targetpostion) < 0.1f)
+        if (Vector2.Distance(transform.position, targetposition) < 0.1f)
         {
             isMoving = false;
         }
     }
-                  
+
+    private void FlipSprite(float targetXPosition)
+    {
+        
+        if (targetXPosition < transform.position.x)
+        {
+           
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
 }
