@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask floorLayer;
     [SerializeField] private float moveSpeed = 5;
 
-   
+    
 
     //private objects
     private Vector2 targetposition;
