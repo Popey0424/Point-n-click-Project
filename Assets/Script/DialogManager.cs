@@ -20,50 +20,112 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private List<TextDialog> dialogList = new List<TextDialog>();
 
     [Header("Dialogue Settings")]
+    [SerializeField] private GameObject HUDdialog;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private float typingSpeed = 0.05f;
     [SerializeField] private TextMeshProUGUI textDialog;
     [SerializeField] private string currentline;
     [SerializeField] private int textId;
+    [SerializeField] public int maxPoints;
 
     [Header("Debug")]
     [SerializeField] private bool isTyping;
     [SerializeField] private bool skipTyping;
 
+    private int points;
+
+
+    private int currentInteractionId;
 
     private void Start()
     {
-
         continueButton.SetActive(false);
     }
-    private void Update()
+
+    public void StartDialogue(int interactionId)
     {
-       
+        HUDdialog.SetActive(true);
+        TextDialog dialog = null;
+
+
+        currentInteractionId = interactionId;
+
+        for (int i = 0; i < dialogList.Count; i++)
+        {
+            if (dialogList[i].InteractionID == interactionId)
+            {
+                dialog = dialogList[i];
+                break;
+            }
+        }
+
+        textId = 0;
+        StartCoroutine(TypeLine(dialog));
     }
 
+    private IEnumerator TypeLine(TextDialog dialog)
+    {
+        isTyping = true;
+        currentline = dialog.TextString[textId];
+        textDialog.text = "";
+
+        foreach (char letter in currentline.ToCharArray())
+        {
+            textDialog.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        isTyping = false;
+        continueButton.SetActive(true);
+    }
+
+    public void OnClickContinueDialog()
+    {
+        if (isTyping)
+        {
+            return;
+        }
 
 
-    //public void StartDialogue(string[] dialogueLines)
-    //{
-    //    StartCoroutine(DisplayLines(dialogueLines));
-    //}
+        TextDialog dialog = null;
+        for (int i = 0; i < dialogList.Count; i++)
+        {
+            if (dialogList[i].InteractionID == currentInteractionId)
+            {
+                dialog = dialogList[i];
+                break;
+            }
+        }
 
-    //IEnumerator DisplayLines(string[] lines)
-    //{
-    //    foreach (string line in lines)
-    //    {
-    //        yield return StartCoroutine(TypeLine(line));  
-           
-    
-    //    }
-    //}
+        if (dialog == null)
+        {
+            return;
+        }
+        int pointsToAdd = GetPointsForLine(dialog.TextString[textId]);
+        points += pointsToAdd;
 
-    //IEnumerator TypeLine(string line)
-    //{
-    //    yield return new WaitForSeconds(typingSpeed);
-    //}
+        if (pointsToAdd >= maxPoints)
+        {
+            //mort
+        }
+        textId++;
+        if (textId < dialog.TextString.Length)
+        {
+            StartCoroutine(TypeLine(dialog));
+        }
+        else
+        {
+            EndDialogue();
+        }    
+    }
+    private int GetPointsForLine(string line)
+    {
+        return line.Contains("important") ? 10 : 1;
+    }
 
-
-    
-
+    private void EndDialogue()
+    {
+        continueButton.SetActive(false);
+        textDialog.text = "";
+    }
 }
