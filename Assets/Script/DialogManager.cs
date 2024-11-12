@@ -7,9 +7,19 @@ using UnityEngine.UI;
 
 
 [System.Serializable]
+public class intsCounits
+{
+    public string TextString;
+    public int NumCounits;
+    public Button ContinueText;
+}
+
+[System.Serializable]
 public class TextDialog
 {
-    public string[] TextString;
+    //[SerializeField] private List<intsCounits> intsText = new List<intsCounits>();
+    public string[] TextString; 
+
     public int InteractionID;
     public Button ContinueText;
 }
