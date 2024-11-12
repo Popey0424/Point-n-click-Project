@@ -9,6 +9,7 @@ public class ChapterScene : MonoBehaviour
 {
     [Header("Chapter Settings")]
     [SerializeField] private Image imageFade;
+    [SerializeField] private string goToScene;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class ChapterScene : MonoBehaviour
 
     private void FadeCompleted()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene(goToScene);
         Debug.Log("SceneLancer");
     }
 
