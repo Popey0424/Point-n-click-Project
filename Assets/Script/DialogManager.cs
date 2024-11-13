@@ -1,27 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
-
-
-[System.Serializable]
-public class intsCounits
-{
-    public string TextString;
-    public int NumCounits;
-    public Button ContinueText;
-}
 
 [System.Serializable]
 public class TextDialog
 {
-    //[SerializeField] private List<intsCounits> intsText = new List<intsCounits>();
-    public string[] TextString; 
+    public enum CharacterType { TeddyBear, Enemy }
 
-    public int InteractionID;
+    public CharacterType characterType;
+    public string[] TextString; 
+    public int InteractionID;   
     public Button ContinueText;
+    public GameObject CollisionInteraction;
 }
 
 public class DialogManager : MonoBehaviour
@@ -34,108 +26,111 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private GameObject continueButton;
     [SerializeField] private float typingSpeed = 0.05f;
     [SerializeField] private TextMeshProUGUI textDialog;
-    [SerializeField] private string currentline;
-    [SerializeField] private int textId;
-    [SerializeField] public int maxPoints;
-
-    [Header("Debug")]
-    [SerializeField] private bool isTyping;
-    [SerializeField] private bool skipTyping;
+    [SerializeField] private int maxPoints;
 
     private int points;
-
-
     private int currentInteractionId;
+    private int textId; 
+    private TextDialog currentDialog;
+    private PlayerMovement playerMovement;
 
     private void Start()
     {
         continueButton.SetActive(false);
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     public void StartDialogue(int interactionId)
     {
         HUDdialog.SetActive(true);
-        TextDialog dialog = null;
+        textDialog.gameObject.SetActive(true);
+        continueButton.SetActive(false);
 
-
-        currentInteractionId = interactionId;
-
-        for (int i = 0; i < dialogList.Count; i++)
+        if (playerMovement != null)
         {
-            if (dialogList[i].InteractionID == interactionId)
-            {
-                dialog = dialogList[i];
-                break;
-            }
+            playerMovement.StopMovement(false); 
         }
 
-        textId = 0;
-        StartCoroutine(TypeLine(dialog));
+        currentDialog = dialogList.Find(d => d.InteractionID == interactionId);
+
+        if (currentDialog != null)
+        {
+            textId = 0; 
+            StartCoroutine(TypeLine(currentDialog));
+        }
     }
 
     private IEnumerator TypeLine(TextDialog dialog)
     {
-        isTyping = true;
-        currentline = dialog.TextString[textId];
         textDialog.text = "";
 
-        foreach (char letter in currentline.ToCharArray())
+        foreach (char letter in dialog.TextString[textId])
         {
             textDialog.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        isTyping = false;
         continueButton.SetActive(true);
     }
 
     public void OnClickContinueDialog()
     {
-        if (isTyping)
-        {
-            return;
-        }
+        if (currentDialog == null) return;
 
-
-        TextDialog dialog = null;
-        for (int i = 0; i < dialogList.Count; i++)
+       
+        if (textId < currentDialog.TextString.Length - 1)
         {
-            if (dialogList[i].InteractionID == currentInteractionId)
-            {
-                dialog = dialogList[i];
-                break;
-            }
-        }
-
-        if (dialog == null)
-        {
-            return;
-        }
-        int pointsToAdd = GetPointsForLine(dialog.TextString[textId]);
-        points += pointsToAdd;
-
-        if (pointsToAdd >= maxPoints)
-        {
-            //mort
-        }
-        textId++;
-        if (textId < dialog.TextString.Length)
-        {
-            StartCoroutine(TypeLine(dialog));
+            textId++; 
+            continueButton.SetActive(false);
+            StartCoroutine(TypeLine(currentDialog));
         }
         else
         {
-            EndDialogue();
-        }    
-    }
-    private int GetPointsForLine(string line)
-    {
-        return line.Contains("important") ? 10 : 1;
+            EndDialogue(); 
+        }
     }
 
     private void EndDialogue()
     {
-        continueButton.SetActive(false);
+        HUDdialog.SetActive(false);
         textDialog.text = "";
+
+        if (playerMovement != null)
+        {
+            playerMovement.StopMovement(true);
+        }
+
+        
+        if (dialogList.Contains(currentDialog))
+        {
+            dialogList.Remove(currentDialog);
+        }
+
+      
+        if (currentDialog.CollisionInteraction != null)
+        {
+            
+            Collider2D collider = currentDialog.CollisionInteraction.GetComponent<Collider2D>();
+            if (collider != null)
+            {
+                Destroy(collider); 
+            }
+
+         
+            Destroy(currentDialog.CollisionInteraction);
+        }
+
+        currentDialog = null; 
+    }
+
+
+    private void OnTeddyBearDialogueEnd()
+    {
+        Debug.Log("Fin dialogue avec nounours");
+    }
+
+    private void OnEnemyDialogueEnd()
+    {
+        Debug.Log("Enemy mort");
     }
 }
