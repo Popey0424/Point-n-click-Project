@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class ImageObject : MonoBehaviour
 {
 
 
- 
+    [SerializeField] private int interactionErrorID;
 
     [Header("Open/Close Image")]
     [SerializeField] private GameObject interactionImage;
@@ -18,22 +19,30 @@ public class ImageObject : MonoBehaviour
     [SerializeField] private bool isPlayerInRange = false;
     [SerializeField] private bool isImageOpen = false;
 
+    [Header("Show Error dialog")]
+    [SerializeField] private string Charactername;
+    [SerializeField] private string TextError;
+    [SerializeField] private TextMeshProUGUI textDialogError;
+    [SerializeField] private TextMeshProUGUI textCharacterName;
+    [SerializeField] private GameObject HUDdialog;
+    [SerializeField] private GameObject continueButton;
+    [SerializeField] private float typingSpeed = 0.05f;
+    [SerializeField] private Image RaycastImage;
+
+
+    private PlayerMovement playerMovement;
+
     private void Start()
     {
-      
+        RaycastImage.gameObject.SetActive(false);
         interactionImage.SetActive(false);
         backInteractionButton.gameObject.SetActive(true);
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     private void Update()
     {
-        //if(isPlayerInRange && Input.GetKeyDown(interactionItem) && !isImageOpen)
-        //{
-        //    isImageOpen = true;
-        //    interactionImage.SetActive(true);
-        //    backInteractionButton.gameObject.SetActive(true);
-        //}
-
+        
     }
 
     private void OnMouseEnter()
@@ -50,17 +59,16 @@ public class ImageObject : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (IsMouseIn)
+        if (IsMouseIn && isPlayerInRange==false)
         {
-            while (!isPlayerInRange)
-            {
-                Debug.Log("Il se depalce vers l'image");
-            }
-            if (isPlayerInRange)
-            {
-                Debug.Log("il est dans la frange ouvre l'image");
-                OpenImage();
-            }
+            Debug.Log("je dois me rapprocher");
+           
+           
+        }
+        else if(IsMouseIn && isPlayerInRange== true)
+        {
+            Debug.Log("cest bon");
+            OpenImage();
         }
     }
 
@@ -69,8 +77,14 @@ public class ImageObject : MonoBehaviour
         isImageOpen = true;
         interactionImage.SetActive(true);
         backInteractionButton.gameObject.SetActive(true);
+        if (playerMovement != null)
+        {
+            playerMovement.StopMovement(false);
+        }
+        DialogError();
+
     }
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -78,6 +92,7 @@ public class ImageObject : MonoBehaviour
             isPlayerInRange = true;
            
         }
+        
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -96,6 +111,46 @@ public class ImageObject : MonoBehaviour
             interactionImage.SetActive(false);
             backInteractionButton.gameObject.SetActive(false);
             isImageOpen= false;
+            if (playerMovement != null)
+            {
+                playerMovement.StopMovement(true);
+            }
         }
+    }
+
+    private void DialogError()
+    {
+        RaycastImage.gameObject.SetActive(true);
+        HUDdialog.SetActive(true);
+        textDialogError.gameObject.SetActive(true);
+        continueButton.gameObject.SetActive(false);
+
+        if(playerMovement != null)
+        {
+            playerMovement.StopMovement(false);
+            StartCoroutine(TypeLineError());
+        }
+
+    }
+    private IEnumerator TypeLineError()
+    {
+        textDialogError.text = "";
+        foreach(char letter in TextError)
+        {
+            textDialogError.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        continueButton.SetActive(true);
+     
+    }
+    public void OnClickContinueError()
+    {
+        Debug.Log("Jai appuyer dessus");
+        textDialogError.text = string.Empty;
+        HUDdialog.SetActive(false );
+        continueButton.SetActive(false);
+        textDialogError.gameObject.SetActive(false) ;
+        
     }
 }
