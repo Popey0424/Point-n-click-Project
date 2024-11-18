@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
-            Debug.LogWarning("SpriteRenderer not found on the interactable object.");
+            Debug.LogWarning("SpriteRenderer not found ");
         }
 
        
