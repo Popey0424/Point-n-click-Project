@@ -128,4 +128,12 @@ public class Chapter1Start : MonoBehaviour
     //    cameraController.isBudddyHere = true;
     //}
 
+    public void SwitchRobbieSkin()
+    {
+        Debug.Log("Changement de skin");
+        RobbieWithoutBuddy.gameObject.SetActive(false);
+        RobbieWithBuddy.gameObject.SetActive(true);
+     
+    }
+
 }

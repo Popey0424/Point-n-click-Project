@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
 
     // Player reference
     private GameObject player;
-    [SerializeField] private float playerMoveSpeed = 5f; // Speed of the player's movement
+    [SerializeField] private float playerMoveSpeed = 5f; 
 
     // Private objects
     private Vector3 targetPosition;
@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour
         imageFade.gameObject.SetActive(false);
         UpdateTargetPosition();
 
-        // Find the player in the scene
+        
         player = GameObject.FindWithTag("Player");
         if (player == null)
         {
@@ -57,6 +57,21 @@ public class CameraController : MonoBehaviour
         {
             MoveCamera();
         }
+        if (playerInventory == null)
+        {
+            GameObject playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+            {
+                playerInventory = playerObj.GetComponent<Inventory>();
+            }
+        }
+
+        if (playerInventory != null && playerInventory.HasItem(requiredBuddyItem))
+        {
+            chapter1Start.SwitchRobbieSkin();
+            Debug.Log("Buddy trouvé fleche debloquer");
+           
+        }
     }
 
     private void UpdateTargetPosition()
@@ -71,16 +86,10 @@ public class CameraController : MonoBehaviour
 
     public void OnClickLeftArrow()
     {
-        if (playerInventory == null)
-        {
-            GameObject playerObj = GameObject.FindWithTag("Player");
-            if (playerObj != null)
-            {
-                playerInventory = playerObj.GetComponent<Inventory>();
-            }
-        }
+        
         if (playerInventory != null && playerInventory.HasItem(requiredBuddyItem))
         {
+           
             Debug.Log("Buddy trouvé");
             MoveToNextBackground(-1);
         }
