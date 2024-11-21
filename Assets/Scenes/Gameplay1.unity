@@ -1464,6 +1464,7 @@ MonoBehaviour:
   imageFade: {fileID: 1312058129}
   player: {fileID: 597930830}
   playerMoveSpeed: 5
+  chapter1Start: {fileID: 1781310148}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7020,9 +7021,9 @@ SceneRoots:
   - {fileID: 1463596123}
   - {fileID: 260973736}
   - {fileID: 945005889}
-  - {fileID: 1781310147}
-  - {fileID: 1066411538}
   - {fileID: 967365178}
   - {fileID: 1778457147}
   - {fileID: 1630272810}
   - {fileID: 1971609001}
+  - {fileID: 1781310147}
+  - {fileID: 1066411538}
