@@ -165,6 +165,7 @@ public class Chapter1Start : MonoBehaviour
 
     public void TriggerEventRoom0()
     {
+        Debug.Log("Trigger Zone 0");
         if (playerInventory != null && playerInventory.HasItem(requiredBuddy))
         {
             Complete1 = true;
