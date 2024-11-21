@@ -4,151 +4,181 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+
+
 public class CameraController : MonoBehaviour
 {
     [Header("Settings Camera")]
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private Transform[] backgrounds; // Les différentes salles
-    [SerializeField] private Transform[] exitPoints; // Les points de sortie pour chaque salle
-    [SerializeField] private int currentRoom = 0;
+    [SerializeField] private List<Room> rooms; 
+    [SerializeField] private int currentRoomIndex = 0;
     [SerializeField] private Image imageFade;
 
     [Header("Arrows Buttons")]
     [SerializeField] private Button leftArrow;
     [SerializeField] private Button rightArrow;
+    [SerializeField] private Button upArrow;
+    [SerializeField] private Button downArrow;
     [SerializeField] private bool isLeftArrowExist;
     [SerializeField] private bool isRightArrowExist;
 
-    [Header("Debug")]
-    [SerializeField] private bool isMoving = false;
-    [SerializeField] public bool isBuddyHere = false;
-
-    public Chapter1Start chapter1Start;
-    public Inventory playerInventory;
-    [SerializeField] private string requiredBuddyItem;
-
-    // Player reference
-    [SerializeField] private GameObject player;  // Rendre le joueur modifiable dans l'éditeur
+    [Header("Player Settings")]
+    [SerializeField] private GameObject player;
     [SerializeField] private float playerMoveSpeed = 5f;
-
-    // Private objects
-    private Vector3 targetPosition;
-    private Transform exitPoint; // Point de sortie pour chaque salle
+    public Chapter1Start chapter1;
+    private bool isMoving = false;
 
     private void Start()
     {
         imageFade.gameObject.SetActive(false);
-        UpdateTargetPosition();
 
         if (player == null)
         {
             player = GameObject.FindWithTag("Player");
             if (player == null)
             {
-                Debug.LogError("Player object not found! Make sure the player has the 'Player' tag.");
+                Debug.LogError("pas de player");
             }
         }
+
+        PositionPlayerAtEntry(currentRoomIndex);
+        UpdateArrowPositions();
     }
 
     void Update()
     {
-        #region Check Possibility Buttons
-        leftArrow.gameObject.SetActive(isLeftArrowExist);
-        rightArrow.gameObject.SetActive(isRightArrowExist);
-        #endregion
-
-        if (isMoving)
-        {
-            MoveCamera();
-        }
-
-        if (playerInventory != null && playerInventory.HasItem(requiredBuddyItem))
-        {
-            chapter1Start.hasBuddy = true;
-            chapter1Start.SwitchRobbieSkin();
-            Debug.Log("Buddy trouvé, flèche débloquée");
-        }
+        UpdateArrowVisibility();
     }
 
-    private void UpdateTargetPosition()
+    private void PositionPlayerAtEntry(int roomIndex)
     {
-        targetPosition = new Vector3(backgrounds[currentRoom].position.x, transform.position.y, transform.position.z);
+        if (roomIndex >= 0 && roomIndex < rooms.Count)
+        {
+            Transform entryPoint = rooms[roomIndex].entryPoint;
+            if (entryPoint != null && player != null)
+            {
+                player.transform.position = entryPoint.position;
+            }
+        }
     }
 
     public void OnClickRightArrow()
     {
-        if (playerInventory != null && playerInventory.HasItem(requiredBuddyItem))
+        if (currentRoomIndex == 0)
         {
-            MoveToNextBackground(1);
-            Debug.Log("Buddy trouvé");
+            Debug.Log("OULA");
+            chapter1.TriggerEventRoom0();
+            if (chapter1.Complete1 == true)
+            {
+                Debug.Log("Normaelemnt cest bon ");
+                MoveToRoom(currentRoomIndex + 1);
+            }
+            else
+            {
+                // MEttre text Erreur
+            }
+           
         }
-        else
+        else if (currentRoomIndex < rooms.Count - 1)
         {
-            Debug.Log("Besoin de buddy");
-            chapter1Start.StartDebugDialogue(1);
+            MoveToRoom(currentRoomIndex + 1);
         }
+        
     }
 
     public void OnClickLeftArrow()
     {
-        MoveToNextBackground(-1);
-    }
-
-    private void MoveCamera()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+        if (currentRoomIndex > 0)
         {
-            transform.position = targetPosition;
-            isMoving = false;
-            StartFadeOut();
+            MoveToRoom(currentRoomIndex - 1);
         }
     }
 
-    private void MoveToNextBackground(int direction)
+
+    private void MoveToRoom(int newRoomIndex)
     {
-        currentRoom += direction;
-        currentRoom = Mathf.Clamp(currentRoom, 0, backgrounds.Length - 1);
+        if (newRoomIndex < 0 || newRoomIndex >= rooms.Count || isMoving)
+            return;
 
-        UpdateTargetPosition();
+        Room currentRoom = rooms[currentRoomIndex];
+        Room nextRoom = rooms[newRoomIndex];
 
-        // Récupérer le point de sortie spécifique à la salle
-        exitPoint = GetExitPoint(currentRoom);
-
-        // Déplacer le joueur vers le point de sortie
-        MovePlayerToExit(exitPoint);
-
-        StartFadeIn();
-    }
-
-    private Transform GetExitPoint(int roomIndex)
-    {
-        // Retourne le point de sortie pour la salle en cours en utilisant l'index
-        if (roomIndex >= 0 && roomIndex < exitPoints.Length)
+   
+        if (currentRoom.exitPoint != null)
         {
-            return exitPoints[roomIndex];  // Retourne le point de sortie spécifique à la salle
+            MovePlayerToPoint(currentRoom.exitPoint, () =>
+            {
+               
+                currentRoomIndex = newRoomIndex;
+
+                StartFadeIn();
+                MoveCameraToRoom(nextRoom);
+
+              
+                PositionPlayerAtEntry(currentRoomIndex);
+                //UpdateArrowPositions();
+            });
         }
-        return null; // Si l'index est invalide, retourner null
     }
 
-    private void MovePlayerToExit(Transform exit)
+    private void MovePlayerToPoint(Transform point, TweenCallback onComplete)
     {
-        if (player == null || exit == null) return;
+        if (player == null || point == null)
+            return;
 
-        // Déplace le joueur vers le point de sortie (par exemple la porte ou l'escalier)
-        player.transform.DOMove(exit.position, playerMoveSpeed).SetEase(Ease.Linear).OnComplete(() =>
+        player.transform.DOMove(point.position, playerMoveSpeed).SetEase(Ease.Linear).OnComplete(onComplete);
+    }
+
+    private void MoveCameraToRoom(Room room)
+    {
+        if (room != null)
         {
-            MoveCameraToNewRoom();
-        });
+            isMoving = true;
+            Vector3 targetPosition = new Vector3(room.cameraPosition.position.x, room.cameraPosition.position.y, transform.position.z);
+
+            transform.DOMove(targetPosition, moveSpeed).OnComplete(() =>
+            {
+                isMoving = false;
+                StartFadeOut();
+                UpdateArrowVisibility();
+            });
+        }
     }
 
-    private void MoveCameraToNewRoom()
+    private void UpdateArrowPositions()
     {
-        // Déplace la caméra vers la nouvelle position
-        targetPosition = new Vector3(backgrounds[currentRoom].position.x, exitPoint.position.y, transform.position.z);
-        isMoving = true;
+        Room currentRoom = rooms[currentRoomIndex];
+        if (currentRoom.leftArrowPosition != null)
+        {
+            leftArrow.transform.position = currentRoom.leftArrowPosition.position;
+        }
+        if (currentRoom.rightArrowPosition != null)
+        {
+            rightArrow.transform.position = currentRoom.rightArrowPosition.position;
+        }
+            
+    }
+    private void UpdateArrowVisibility()
+    {
+        Room currentRoom = rooms[currentRoomIndex];
+
+        // Activer/Désactiver les flèches
+        leftArrow.gameObject.SetActive(currentRoom.leftArrowPosition != null);
+        rightArrow.gameObject.SetActive(currentRoom.rightArrowPosition != null);
     }
 
+
+        [System.Serializable]
+    public class Room
+    {
+        public Transform cameraPosition; 
+        public Transform entryPoint;     
+        public Transform exitPoint;
+
+        public Transform leftArrowPosition;
+        public Transform rightArrowPosition;
+
+    }
     #region Fade
 
     private void StartFadeIn()
@@ -162,6 +192,7 @@ public class CameraController : MonoBehaviour
     private void FadeComplete()
     {
         isMoving = true;
+        UpdateArrowPositions();
     }
 
     private void StartFadeOut()
@@ -172,8 +203,6 @@ public class CameraController : MonoBehaviour
     private void ResetFade()
     {
         imageFade.gameObject.SetActive(false);
-        isLeftArrowExist = currentRoom > 0;
-        isRightArrowExist = currentRoom < backgrounds.Length - 1;
     }
 
     #endregion

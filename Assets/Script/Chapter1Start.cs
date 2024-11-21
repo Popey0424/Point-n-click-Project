@@ -18,6 +18,7 @@ public class Chapter1Start : MonoBehaviour
 {
     private CameraController cameraController;
     private PlayerMovement playerMovement;
+    private Inventory playerInventory;
     [SerializeField] private List<DebugDialog> debugDialogs = new List<DebugDialog>();
     private DebugDialog currentDebugDialog;
 
@@ -32,11 +33,15 @@ public class Chapter1Start : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool IsMouseIn = false;
     private int ID;
+    [SerializeField] public bool Complete1 = false;
+
+    [Header("REquiredItem")]
+    [SerializeField] private string requiredBuddy;
 
     #region firstRoom
-    public GameObject RobbieWithoutBuddy; // Préfabriqué sans nounours
-    public GameObject RobbieWithBuddy;    // Préfabriqué avec nounours
-    public bool hasBuddy = false;         // Booléen pour savoir si Robbie a récupéré son nounours
+    public GameObject RobbieWithoutBuddy;
+    public GameObject RobbieWithBuddy;    
+    public bool hasBuddy = false;         
     #endregion
 
 
@@ -44,7 +49,24 @@ public class Chapter1Start : MonoBehaviour
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
     }
+    private void Update()
+    {
+        if (playerInventory == null)
+        {
+            GameObject playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+            {
+                playerInventory = playerObj.GetComponent<Inventory>();
+            }
+        }
+        if (playerInventory != null && playerInventory.HasItem(requiredBuddy))
+        {
+            playerMovement.SwitchRobbieSkin();
+            Debug.Log("Buddy trouvé fleche debloquer");
 
+        }
+
+    }
     public void StartDebugDialogue(int debuginteractionID)
     {
         HUDdialog.SetActive(true);
@@ -126,18 +148,26 @@ public class Chapter1Start : MonoBehaviour
     {
         Debug.Log("Changement de skin");
 
-        // Si Robbie récupère son nounours, on active la prefab avec nounours
+     
         if (hasBuddy == true)
         {
-            RobbieWithoutBuddy.SetActive(false); // Désactive le modèle sans nounours
-            RobbieWithBuddy.SetActive(true);     // Active le modèle avec nounours
+            RobbieWithoutBuddy.SetActive(false); 
+            RobbieWithBuddy.SetActive(true);     
                           
         }
         else if(hasBuddy == false) 
         {
-            RobbieWithBuddy.SetActive(false);    // Désactive le modèle avec nounours
-            RobbieWithoutBuddy.SetActive(true);  // Active le modèle sans nounours
+            RobbieWithBuddy.SetActive(false);    
+            RobbieWithoutBuddy.SetActive(true);  
                             
+        }
+    }
+
+    public void TriggerEventRoom0()
+    {
+        if (playerInventory != null && playerInventory.HasItem(requiredBuddy))
+        {
+            Complete1 = true;
         }
     }
 
