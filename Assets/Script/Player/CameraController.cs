@@ -1,31 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-
-
 public class CameraController : MonoBehaviour
 {
     [Header("Settings Camera")]
-    [SerializeField] private float moveSpeed = 5f;
+     private float moveSpeed = 150f;
     [SerializeField] private List<Room> rooms; 
     [SerializeField] private int currentRoomIndex = 0;
     [SerializeField] private Image imageFade;
 
-    [Header("Arrows Buttons")]
-    [SerializeField] private Button leftArrow;
-    [SerializeField] private Button rightArrow;
-    [SerializeField] private Button upArrow;
-    [SerializeField] private Button downArrow;
-    [SerializeField] private bool isLeftArrowExist;
-    [SerializeField] private bool isRightArrowExist;
-
     [Header("Player Settings")]
     [SerializeField] private GameObject player;
     [SerializeField] private float playerMoveSpeed = 5f;
-    public Chapter1Start chapter1;
+
     private bool isMoving = false;
 
     private void Start()
@@ -37,19 +26,18 @@ public class CameraController : MonoBehaviour
             player = GameObject.FindWithTag("Player");
             if (player == null)
             {
-                Debug.LogError("pas de player");
+                Debug.LogError("JOuer pas trouver");
             }
         }
 
         PositionPlayerAtEntry(currentRoomIndex);
-        UpdateArrowPositions();
+        UpdateRoomDirections();
     }
 
-    void Update()
+    private void Update()
     {
-        UpdateArrowVisibility();
+        Debug.Log(moveSpeed);
     }
-
     private void PositionPlayerAtEntry(int roomIndex)
     {
         if (roomIndex >= 0 && roomIndex < rooms.Count)
@@ -62,62 +50,49 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void OnClickRightArrow()
+    private void UpdateRoomDirections()
     {
-        if (currentRoomIndex == 0)
-        {
-            Debug.Log("OULA");
-            chapter1.TriggerEventRoom0();
-            if (chapter1.Complete1 == true)
-            {
-                Debug.Log("Normaelemnt cest bon ");
-                MoveToRoom(currentRoomIndex + 1);
-            }
-            else
-            {
-                // MEttre text Erreur
-            }
-           
-        }
-        else if (currentRoomIndex < rooms.Count - 1)
-        {
-            MoveToRoom(currentRoomIndex + 1);
-        }
-        
-    }
+        Room currentRoom = rooms[currentRoomIndex];
 
-    public void OnClickLeftArrow()
-    {
-        if (currentRoomIndex > 0)
+
+        foreach (var direction in currentRoom.directions)
         {
-            MoveToRoom(currentRoomIndex - 1);
+            direction.arrow.gameObject.SetActive(false);
+        }
+
+        foreach (var direction in currentRoom.directions)
+        {
+            direction.arrow.gameObject.SetActive(true);
         }
     }
 
-
-    private void MoveToRoom(int newRoomIndex)
+    public void HandleDirection(int directionIndex)
     {
-        if (newRoomIndex < 0 || newRoomIndex >= rooms.Count || isMoving)
-            return;
+        if (isMoving) return;
 
         Room currentRoom = rooms[currentRoomIndex];
-        Room nextRoom = rooms[newRoomIndex];
 
-   
-        if (currentRoom.exitPoint != null)
+        if (directionIndex < 0 || directionIndex >= currentRoom.directions.Count)
         {
-            MovePlayerToPoint(currentRoom.exitPoint, () =>
+            Debug.LogError("Direction index out of bounds!");
+            return;
+        }
+
+        RoomDirection direction = currentRoom.directions[directionIndex];
+
+     
+        if (direction.transitionPoint != null)
+        {
+            MovePlayerToPoint(direction.transitionPoint, () =>
             {
-               
-                currentRoomIndex = newRoomIndex;
 
-                StartFadeIn();
-                MoveCameraToRoom(nextRoom);
-
-              
-                PositionPlayerAtEntry(currentRoomIndex);
-                //UpdateArrowPositions();
+                MoveToRoom(direction.targetRoomIndex);
             });
+        }
+        else
+        {
+
+            MoveToRoom(direction.targetRoomIndex);
         }
     }
 
@@ -127,6 +102,24 @@ public class CameraController : MonoBehaviour
             return;
 
         player.transform.DOMove(point.position, playerMoveSpeed).SetEase(Ease.Linear).OnComplete(onComplete);
+    }
+
+    private void MoveToRoom(int newRoomIndex)
+    {
+        if (newRoomIndex < 0 || newRoomIndex >= rooms.Count || isMoving)
+            return;
+
+        Room nextRoom = rooms[newRoomIndex];
+
+
+        MoveCameraToRoom(nextRoom);
+
+
+        PositionPlayerAtEntry(newRoomIndex);
+
+
+        currentRoomIndex = newRoomIndex;
+        UpdateRoomDirections();
     }
 
     private void MoveCameraToRoom(Room room)
@@ -139,60 +132,39 @@ public class CameraController : MonoBehaviour
             transform.DOMove(targetPosition, moveSpeed).OnComplete(() =>
             {
                 isMoving = false;
-                StartFadeOut();
-                UpdateArrowVisibility();
             });
         }
     }
 
-    private void UpdateArrowPositions()
-    {
-        Room currentRoom = rooms[currentRoomIndex];
-        if (currentRoom.leftArrowPosition != null)
-        {
-            leftArrow.transform.position = currentRoom.leftArrowPosition.position;
-        }
-        if (currentRoom.rightArrowPosition != null)
-        {
-            rightArrow.transform.position = currentRoom.rightArrowPosition.position;
-        }
-            
-    }
-    private void UpdateArrowVisibility()
-    {
-        Room currentRoom = rooms[currentRoomIndex];
-
-        // Activer/Désactiver les flèches
-        leftArrow.gameObject.SetActive(currentRoom.leftArrowPosition != null);
-        rightArrow.gameObject.SetActive(currentRoom.rightArrowPosition != null);
-    }
-
-
-        [System.Serializable]
+    [System.Serializable]
     public class Room
     {
-        public Transform cameraPosition; 
-        public Transform entryPoint;     
-        public Transform exitPoint;
-
-        public Transform leftArrowPosition;
-        public Transform rightArrowPosition;
-
+        public Transform cameraPosition;   
+        public Transform entryPoint;       
+        public List<RoomDirection> directions; 
     }
+
+    [System.Serializable]
+    public class RoomDirection
+    {
+        public Button arrow;              
+        public int targetRoomIndex;        
+        public Transform transitionPoint;  
+    }
+
     #region Fade
 
     private void StartFadeIn()
     {
         imageFade.gameObject.SetActive(true);
-        isLeftArrowExist = true;
-        isRightArrowExist = true;
+        
         imageFade.DOFade(1, 2.9f).OnComplete(FadeComplete);
     }
 
     private void FadeComplete()
     {
         isMoving = true;
-        UpdateArrowPositions();
+        
     }
 
     private void StartFadeOut()
