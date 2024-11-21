@@ -6,7 +6,7 @@ using DG.Tweening;
 public class CameraController : MonoBehaviour
 {
     [Header("Settings Camera")]
-     private float moveSpeed = 150f;
+     private float moveSpeed = 10f;
     [SerializeField] private List<Room> rooms; 
     [SerializeField] private int currentRoomIndex = 0;
     [SerializeField] private Image imageFade;
@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float playerMoveSpeed = 5f;
 
     private bool isMoving = false;
+    public Chapter1Start chapter1Start;
 
     private void Start()
     {
@@ -74,13 +75,30 @@ public class CameraController : MonoBehaviour
 
         if (directionIndex < 0 || directionIndex >= currentRoom.directions.Count)
         {
-            Debug.LogError("Direction index out of bounds!");
+
             return;
         }
 
         RoomDirection direction = currentRoom.directions[directionIndex];
 
-     
+
+        if (currentRoomIndex == 0)
+        {
+            chapter1Start.TriggerEventRoom0();
+            if (chapter1Start.Complete1 == true)
+            {
+                MovePlayerToPoint(direction.transitionPoint, () =>
+                {
+
+                    MoveToRoom(direction.targetRoomIndex);
+                });
+            }
+            else
+            {
+                Debug.Log("Jai pas le nounours");
+            }
+        }
+
         if (direction.transitionPoint != null)
         {
             MovePlayerToPoint(direction.transitionPoint, () =>
