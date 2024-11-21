@@ -21,7 +21,6 @@ public class Chapter1Start : MonoBehaviour
     [SerializeField] private List<DebugDialog> debugDialogs = new List<DebugDialog>();
     private DebugDialog currentDebugDialog;
 
-
     [Header("Start Interactions")]
     [SerializeField] private TextMeshProUGUI textDialog;
     [SerializeField] private TextMeshProUGUI textCharacterName;
@@ -30,21 +29,16 @@ public class Chapter1Start : MonoBehaviour
     [SerializeField] private Image RaycastImage;
     [SerializeField] private GameObject continueButton;
 
-
     [Header("Debug")]
     [SerializeField] private bool IsMouseIn = false;
     private int ID;
 
-
     #region firstRoom
-
-    public GameObject RobbieWithoutBuddy;
-    public GameObject RobbieWithBuddy;
-
-
-
-
+    public GameObject RobbieWithoutBuddy; // Préfabriqué sans nounours
+    public GameObject RobbieWithBuddy;    // Préfabriqué avec nounours
+    public bool hasBuddy = false;         // Booléen pour savoir si Robbie a récupéré son nounours
     #endregion
+
 
     private void Start()
     {
@@ -131,9 +125,21 @@ public class Chapter1Start : MonoBehaviour
     public void SwitchRobbieSkin()
     {
         Debug.Log("Changement de skin");
-        RobbieWithoutBuddy.gameObject.SetActive(false);
-        RobbieWithBuddy.gameObject.SetActive(true);
-     
+
+        // Si Robbie récupère son nounours, on active la prefab avec nounours
+        if (hasBuddy == true)
+        {
+            RobbieWithoutBuddy.SetActive(false); // Désactive le modèle sans nounours
+            RobbieWithBuddy.SetActive(true);     // Active le modèle avec nounours
+                          
+        }
+        else if(hasBuddy == false) 
+        {
+            RobbieWithBuddy.SetActive(false);    // Désactive le modèle avec nounours
+            RobbieWithoutBuddy.SetActive(true);  // Active le modèle sans nounours
+                            
+        }
     }
+
 
 }
