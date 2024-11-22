@@ -5591,18 +5591,6 @@ MonoBehaviour:
     WantToDestroy: 1
   - dialogLines:
     - characterType: 5
-      text: Qu'est ce qu'il se passe ? J'ai entendu un cri...
-    - characterType: 5
-      text: "J'ai d\xFB faire un cauchemar"
-    - characterType: 5
-      text: "Oh, Bibi et Nini ne sont plus l\xE0, ils sont s\xFBrement en bas. Je
-        vais aller voir."
-    InteractionID: 0
-    ContinueText: {fileID: 296207326}
-    CollisionInteraction: {fileID: 1689280282}
-    WantToDestroy: 1
-  - dialogLines:
-    - characterType: 5
       text: "Il y a de la lumi\xE8re en bas ..."
     InteractionID: 0
     ContinueText: {fileID: 296207326}
@@ -5610,7 +5598,25 @@ MonoBehaviour:
     WantToDestroy: 1
   - dialogLines:
     - characterType: 5
-      text: "Il y a de la lumi\xE8re en bas ..."
+      text: "La porte est ferm\xE9e... Je vais devoir trouver un autre moyen pour
+        all"
+    - characterType: 5
+      text: "Le tabouret de Bibi n'est plus l\xE0, mais o\xF9 est-il pass\xE9 ?"
+    - characterType: 5
+      text: "Maintenant que j'y pense, je n'ai pas vu non plus son doudou de Buddy.
+        Apr\xE8s connaissant Bibi, il doit l'avoir avec lui. Il ne quitte jamais
+        son doudou, il l'aime tellement !"
+    - characterType: 5
+      text: Oh, j'entends Bibi, il est dans le salon !
+    InteractionID: 0
+    ContinueText: {fileID: 296207326}
+    CollisionInteraction: {fileID: 1689280282}
+    WantToDestroy: 1
+  - dialogLines:
+    - characterType: 5
+      text: Bibi, alors ! Petit blagueur, tu as vu l'heu...
+    - characterType: 1
+      text: "(marmonne) Mais o\xF9 est ce livre ? J'ai "
     InteractionID: 0
     ContinueText: {fileID: 296207326}
     CollisionInteraction: {fileID: 1689280282}
