@@ -32,15 +32,14 @@ public class S_CameraController : MonoBehaviour
         
     }
 
-   
+
     public void OnClickChoiceArrow(int choice)
     {
-        if(hasInteraction == true)
+        if (hasInteraction == true)
         {
-            Debug.Log("Necessite Item");
+            Debug.Log("Nécessite un item");
             if (S_Chapter.CompleteIterraction == true)
             {
-
                 if (choice >= 0 && choice < scenes.Count)
                 {
                     string nextScene = scenes[choice].NextScene;
@@ -56,15 +55,28 @@ public class S_CameraController : MonoBehaviour
             {
                 S_Chapter.StartMindDialogue(1);
             }
-            
-            
-            
+        }
+        else if (scenes[choice].IsPossible == false)
+        {
+            Debug.Log("Impossible d'aller par la");
+            S_Chapter.StartMindDialogue(1);
         }
         else
         {
-            Debug.Log("Stop");
+            Debug.Log("SwitchScene");
+            if (choice >= 0 && choice < scenes.Count && choice == scenes[choice].sceneInteraction)
+            {
+                Debug.Log("Trouvé !");
+                string nextScene = scenes[choice].NextScene;
+                Debug.Log($"Chargement de la scène : {nextScene}");
+                StartCoroutine(LoadScene(nextScene));
+            }
+            else
+            {
+                Debug.LogWarning("Choix invalide !");
+            }
         }
-       
+        
     }
 
 
@@ -91,6 +103,7 @@ public class S_CameraController : MonoBehaviour
     public class SceneChoice
     {
         public string NextScene; 
-        public int sceneInteraction; 
+        public int sceneInteraction;
+        public bool IsPossible;
     }
 }

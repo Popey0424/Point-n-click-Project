@@ -34,7 +34,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f;
     [SerializeField] private TextMeshProUGUI textDialog;
     [SerializeField] private TextMeshProUGUI characterNameText;
-    [SerializeField] private int maxPoints;
+   
 
     private int points;
     private int currentInteractionId;
@@ -107,6 +107,7 @@ public class DialogManager : MonoBehaviour
     private void EndDialogue()
     {
         HUDdialog.SetActive(false);
+        continueButton.SetActive(false);
         textDialog.text = "";
         characterNameText.text = "";
 
