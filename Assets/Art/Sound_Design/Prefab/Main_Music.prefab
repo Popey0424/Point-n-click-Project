@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5254442087501187116}
   - component: {fileID: 2418041659233432653}
   m_Layer: 0
-  m_Name: Main
+  m_Name: Main_Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: c0e21974a71ad044cae0a0b7eaf8a04f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.78
+  m_Pitch: 0.86
   Loop: 1
   Mute: 0
   Spatialize: 0
