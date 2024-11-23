@@ -41,6 +41,7 @@ public class DialogManager : MonoBehaviour
     private int textId;
     private TextDialog currentDialog;
     private PlayerMovement playerMovement;
+    public Chapter1 chapter1;
     
 
     private void Start()
@@ -110,6 +111,11 @@ public class DialogManager : MonoBehaviour
         continueButton.SetActive(false);
         textDialog.text = "";
         characterNameText.text = "";
+        if (currentDialog != null && currentDialog.InteractionID == 5)
+        {
+            Debug.Log("Mort");
+            chapter1.EndOfChapterOne();
+        }
 
         if (playerMovement != null)
         {
