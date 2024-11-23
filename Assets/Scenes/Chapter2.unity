@@ -929,7 +929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageFade: {fileID: 788148489}
-  goToScene: Gameplay2
+  goToScene: RoomSceneChapter2
 --- !u!4 &1656865827
 Transform:
   m_ObjectHideFlags: 0

@@ -42,6 +42,7 @@ public class DialogManager : MonoBehaviour
     private TextDialog currentDialog;
     private PlayerMovement playerMovement;
     public Chapter1 chapter1;
+    public PlayerMovement1 playerMovement1;
     
 
     private void Start()
@@ -55,6 +56,11 @@ public class DialogManager : MonoBehaviour
         HUDdialog.SetActive(true);
         textDialog.gameObject.SetActive(true);
         continueButton.SetActive(false);
+
+        if (playerMovement1 != null)
+        {
+            playerMovement1.StopMovement(false);
+        }
 
         if (playerMovement != null)
         {
@@ -120,6 +126,11 @@ public class DialogManager : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.StopMovement(true);
+        }
+
+        if (playerMovement1 != null)
+        {
+            playerMovement1.StopMovement(true);
         }
 
         if (dialogList.Contains(currentDialog))
