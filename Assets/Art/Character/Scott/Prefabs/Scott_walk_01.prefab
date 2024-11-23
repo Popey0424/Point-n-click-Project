@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 6253321627528460327}
   - component: {fileID: 1033614067054579786}
   - component: {fileID: 1254539777424560013}
+  - component: {fileID: 4947494305380590493}
   m_Layer: 0
   m_Name: Scott_walk_01
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6253321627528460327
 Transform:
   m_ObjectHideFlags: 0
@@ -106,3 +107,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4947494305380590493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718606340746111575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -4.793345, y: -5.68836, z: 0}
+  - {x: -2.104008, y: 4.3632298, z: 0}
+  - {x: 0.013230899, y: 6.8083396, z: 0}
+  - {x: 2.8800478, y: 5.221703, z: 0}
+  - {x: 2.506721, y: 0.37819254, z: 0}
+  - {x: 2.562571, y: -6.0899076, z: 0}
+  - {x: 0.22928166, y: -6.883226, z: 0}
+  - {x: -2.663997, y: -6.8365593, z: 0}
+  m_ShapePathHash: -757762476
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -8800
+  m_LocalBounds:
+    m_Center: {x: -0.9566486, y: -0.03744316, z: 0}
+    m_Extent: {x: 3.8366964, y: 6.8457828, z: 0}

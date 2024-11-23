@@ -1061,6 +1061,7 @@ MonoBehaviour:
   scenes:
   - NextScene: RDCSceneChapter1
     sceneInteraction: 0
+    IsPossible: 0
   hasInteraction: 1
   S_Chapter: {fileID: 1781310148}
 --- !u!1 &521356077
@@ -1271,6 +1272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 597930833}
   - component: {fileID: 597930834}
+  - component: {fileID: 597930837}
   - component: {fileID: 597930835}
   - component: {fileID: 597930836}
   m_Layer: 7
@@ -1295,9 +1297,9 @@ Transform:
   m_Children:
   - {fileID: 1199383889}
   - {fileID: 1911985170}
+  - {fileID: 348481827}
   - {fileID: 1911131123}
   - {fileID: 1256332450}
-  - {fileID: 348481827}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &597930834
@@ -1307,7 +1309,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597930830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beace83d8345f0645944983e1b013b04, type: 3}
   m_Name: 
@@ -1317,10 +1319,10 @@ MonoBehaviour:
     m_Bits: 64
   moveSpeed: 5
   isMoving: 0
-  RobbieWithoutBuddyIdle: {fileID: 1911985169}
-  RobbieWithoutBuddyWalk: {fileID: 348481826}
-  RobbieWithBuddyIdle: {fileID: 1911131119}
-  RobbieWithBuddyWalk: {fileID: 1256332449}
+  PersoWithoutBuddyIdle: {fileID: 0}
+  PersoWithoutBuddyWalk: {fileID: 0}
+  PersoWithBuddyIdle: {fileID: 0}
+  PersoWithBuddyWalk: {fileID: 0}
   isGonnaChangeSkin: 1
 --- !u!50 &597930835
 Rigidbody2D:
@@ -1366,6 +1368,25 @@ MonoBehaviour:
   inventoryUI: {fileID: 152486732}
   slotsParent: {fileID: 152486733}
   slotPrefab: {fileID: 9050520123152696734, guid: 0ec1b20019a0aa5409fbb9a39427ab8a, type: 3}
+--- !u!114 &597930837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597930830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db4b8bb8e23ac44bb275d505aa3e212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleState: {fileID: 1911985169}
+  walkingState: {fileID: 348481826}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  speed: 5
+  stopDistance: 0.1
 --- !u!1 &664857419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,11 +2484,6 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0.12531054, y: -0.022118568, z: 0}
     m_Extent: {x: 0.7379408, y: 1.004637, z: 0}
---- !u!1 &1256332449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4236511798533580092, guid: ff5c2350c73eb78429553abcdb1dfd71, type: 3}
-  m_PrefabInstance: {fileID: 524174638}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1256332450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7881938516205498516, guid: ff5c2350c73eb78429553abcdb1dfd71, type: 3}

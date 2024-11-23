@@ -11,10 +11,10 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
 
     // Références aux Prefabs
-    public GameObject RobbieWithoutBuddyIdle;
-    public GameObject RobbieWithoutBuddyWalk;
-    public GameObject RobbieWithBuddyIdle;
-    public GameObject RobbieWithBuddyWalk;
+    public GameObject PersoWithoutBuddyIdle;
+    public GameObject PersoWithoutBuddyWalk;
+    public GameObject PersoWithBuddyIdle;
+    public GameObject PersoWithBuddyWalk;
 
     private GameObject currentRobbieIdle; // Le prefab actuellement actif pour l'animation Idle
     private GameObject currentRobbieWalk; // Le prefab actuellement actif pour l'animation Walk
@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         // Initialisation: Robbie sans nounours en idle
-        currentRobbieIdle = RobbieWithoutBuddyIdle;
-        currentRobbieWalk = RobbieWithoutBuddyWalk;
+        currentRobbieIdle = PersoWithoutBuddyIdle;
+        currentRobbieWalk = PersoWithoutBuddyWalk;
 
         currentRobbieIdle.SetActive(true); // Activer l'état Idle sans nounours
         currentRobbieWalk.SetActive(false); // Désactiver l'état Walk sans nounours
@@ -111,37 +111,37 @@ public class PlayerMovement : MonoBehaviour
             currentRobbieWalk.SetActive(false);
 
             // Si Robbie a récupéré son nounours
-            if (currentRobbieIdle == RobbieWithoutBuddyIdle)
+            if (currentRobbieIdle == PersoWithoutBuddyIdle)
             {
                 // Désactive les prefab sans nounours
-                RobbieWithoutBuddyIdle.SetActive(false);
-                RobbieWithoutBuddyWalk.SetActive(false);
+                PersoWithoutBuddyIdle.SetActive(false);
+                PersoWithoutBuddyWalk.SetActive(false);
 
                 // Active les prefab avec nounours
-                RobbieWithBuddyIdle.SetActive(true);
-                RobbieWithBuddyWalk.SetActive(false);
+                PersoWithBuddyIdle.SetActive(true);
+                PersoWithBuddyWalk.SetActive(false);
 
                 // Met à jour les objets actifs
-                currentRobbieIdle = RobbieWithBuddyIdle;
-                currentRobbieWalk = RobbieWithBuddyWalk;
+                currentRobbieIdle = PersoWithBuddyIdle;
+                currentRobbieWalk = PersoWithBuddyWalk;
             }
             else
             {
                 // Désactive les prefab avec nounours
-                RobbieWithBuddyIdle.SetActive(false);
-                RobbieWithBuddyWalk.SetActive(false);
+                PersoWithBuddyIdle.SetActive(false);
+                PersoWithBuddyWalk.SetActive(false);
 
                 // Active les prefab sans nounours
-                RobbieWithoutBuddyIdle.SetActive(true);
-                RobbieWithoutBuddyWalk.SetActive(false);
+                PersoWithoutBuddyIdle.SetActive(true);
+                PersoWithoutBuddyWalk.SetActive(false);
 
                 // Met à jour les objets actifs
-                currentRobbieIdle = RobbieWithoutBuddyIdle;
-                currentRobbieWalk = RobbieWithoutBuddyWalk;
+                currentRobbieIdle = PersoWithoutBuddyIdle;
+                currentRobbieWalk = PersoWithoutBuddyWalk;
             }
 
             // Si le joueur a récupéré son nounours, on commence directement l'animation de marche avec nounours
-            if (currentRobbieIdle == RobbieWithBuddyIdle)
+            if (currentRobbieIdle == PersoWithBuddyIdle)
             {
                 StartWalking(); // Lance l'animation de marche avec nounours si nécessaire
             }
