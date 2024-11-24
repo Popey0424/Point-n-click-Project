@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6785195082043464882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543754386506416418}
+  - component: {fileID: 6676705514615235425}
+  - component: {fileID: 3258246985563555147}
+  - component: {fileID: 5392261887384733901}
+  m_Layer: 7
+  m_Name: ____Player Scott____
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &543754386506416418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785195082043464882}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.43, y: -3.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5117147343977213065}
+  - {fileID: 2498009831267089651}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6676705514615235425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785195082043464882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db4b8bb8e23ac44bb275d505aa3e212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleState: {fileID: 1368236082916826383}
+  walkingState: {fileID: 908673866839207555}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  speed: 5
+  stopDistance: 0.1
+  entryPoint: {fileID: 0}
+  directionalPoints:
+  - {fileID: 0}
+  s_Chapter: {fileID: 0}
+  specificIdlePrefab: {fileID: 0}
+  specificWalkingPrefab: {fileID: 0}
+  specificSceneName: 
+--- !u!50 &3258246985563555147
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785195082043464882}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &5392261887384733901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785195082043464882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ed6227d881db549a91a04c6bec9dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSlots: 5
+  items: []
+  inventoryUI: {fileID: 0}
+  slotsParent: {fileID: 0}
+  slotPrefab: {fileID: 5880620483635273721, guid: 0ec1b20019a0aa5409fbb9a39427ab8a, type: 3}
+--- !u!1001 &5199727949057636045
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 543754386506416418}
+    m_Modifications:
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545373422583622594, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+      propertyPath: m_Name
+      value: Scott_idle_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+--- !u!1 &1368236082916826383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6545373422583622594, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+  m_PrefabInstance: {fileID: 5199727949057636045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5117147343977213065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1092940263142742596, guid: 8e820df1467d3404faa781dc1421b754, type: 3}
+  m_PrefabInstance: {fileID: 5199727949057636045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8386534112177046740
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 543754386506416418}
+    m_Modifications:
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8718606340746111575, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+      propertyPath: m_Name
+      value: Scott_walk_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+--- !u!1 &908673866839207555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8718606340746111575, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+  m_PrefabInstance: {fileID: 8386534112177046740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2498009831267089651 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6253321627528460327, guid: d0334a191f2d1004fbdf6e620ed6591e, type: 3}
+  m_PrefabInstance: {fileID: 8386534112177046740}
+  m_PrefabAsset: {fileID: 0}
