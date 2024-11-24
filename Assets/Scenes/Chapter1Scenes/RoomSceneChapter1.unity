@@ -2328,9 +2328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mindDialog:
   - textString:
-    - ds
-    - '""'''
-    - fesd
+    - ' Non, j''ai besoin de Buddy avec moi.'
     charactername: Robbie
     MindDialogID: 0
     ContinueMindText: {fileID: 0}
