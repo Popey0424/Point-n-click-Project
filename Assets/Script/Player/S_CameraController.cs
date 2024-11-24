@@ -18,6 +18,9 @@ public class S_CameraController : MonoBehaviour
     [Header("Interaction")]
     [SerializeField] private bool hasInteraction;
 
+    [Header("Audio Switch")]
+    [SerializeField] private AudioSource transitionAudio;
+
 
     public S_Chapter S_Chapter;
 
@@ -49,6 +52,7 @@ public class S_CameraController : MonoBehaviour
                 Debug.Log("dezde");
                 if (choice >= 0 && choice < scenes.Count && scenes[choice].IsPossible == true)
                 {
+                    transitionAudio.Play();
                     string nextScene = scenes[choice].NextScene;
                     Debug.Log($"Chargement de la scène : {nextScene}");
                     StartCoroutine(LoadScene(nextScene));

@@ -67,7 +67,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void FadeComplete()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("IntroScene");
     }
 
     //Settings
