@@ -62,10 +62,7 @@ public class DialogManager : MonoBehaviour
             playerMovement1.StopMovement(false);
         }
 
-        if (playerMovement != null)
-        {
-            playerMovement.StopMovement(false);
-        }
+       
 
         currentDialog = dialogList.Find(d => d.InteractionID == interactionId);
 
@@ -123,10 +120,7 @@ public class DialogManager : MonoBehaviour
             chapter1.EndOfChapterOne();
         }
 
-        if (playerMovement != null)
-        {
-            playerMovement.StopMovement(true);
-        }
+       
 
         if (playerMovement1 != null)
         {
