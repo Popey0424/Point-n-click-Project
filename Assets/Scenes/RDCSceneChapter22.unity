@@ -1674,18 +1674,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  imageFade: {fileID: 1496010988}
+  imageFadeIn: {fileID: 0}
+  imageFadeOut: {fileID: 0}
   scenes:
   - NextScene: RDCDownSceneChapter2
     sceneInteraction: 0
     IsPossible: 1
+    idDialogueMind: 0
   - NextScene: RDCSceneChapter2
     sceneInteraction: 1
     IsPossible: 0
+    idDialogueMind: 0
   - NextScene: RDCSceneChapter2
     sceneInteraction: 2
     IsPossible: 0
+    idDialogueMind: 0
   hasInteraction: 0
+  transitionAudio: {fileID: 0}
   S_Chapter: {fileID: 1781310149}
 --- !u!1 &521356077
 GameObject:
@@ -2330,6 +2335,12 @@ MonoBehaviour:
     m_Bits: 64
   speed: 5
   stopDistance: 0.1
+  entryPoint: {fileID: 0}
+  directionalPoints: []
+  s_Chapter: {fileID: 0}
+  specificIdlePrefab: {fileID: 0}
+  specificWalkingPrefab: {fileID: 0}
+  specificSceneName: 
 --- !u!1 &664857419
 GameObject:
   m_ObjectHideFlags: 0
@@ -3656,7 +3667,23 @@ MonoBehaviour:
   dialogList:
   - dialogLines:
     - characterType: 5
-      text: "Il y a de la lumi\xE8re en bas\u2026"
+      text: "Nini, qu'est ce que tu fais l\xE0 ? Tu as vu Robbie ?"
+    - characterType: 3
+      text: "Scotty, je t'ai cherch\xE9 partout ! Maman veut te voir, elle est en
+        bas. Descends avec moi !"
+    - characterType: 5
+      text: "Non ! Maman est m\xE9chante, elle a peut \xEAtre d\xE9j\xE0 pris Robbie
+        pour le punir !"
+    - characterType: 3
+      text: "Quoi, mais non, enfin. Tu racontes des b\xEAtises."
+    - characterType: 5
+      text: Non, c'est pour de vrai ! C'est Buddy qui me l'a dit !
+    - characterType: 3
+      text: "Le doudou de Robbie ? Allez calme-toi. Tu dois juste \xEAtre fatigu\xE9.
+        Viens, suis-moi et tu iras te recoucher apr\xE8s avoir vu maman. Robbie est
+        avec elle en plus !"
+    - characterType: 3
+      text: "Puis tu dois rendre Buddy \xE0 Robbie o\xF9 il fera un caca nerveux."
     InteractionID: 3
     ContinueText: {fileID: 1924788286}
     CollisionInteraction: {fileID: 1079943398}
@@ -3668,6 +3695,7 @@ MonoBehaviour:
   characterNameText: {fileID: 53088799}
   chapter1: {fileID: 0}
   playerMovement1: {fileID: 597930838}
+  ArrowsPositions: {fileID: 1043455262}
 --- !u!114 &1781310149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3682,18 +3710,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mindDialog:
   - textString:
-    - 'Je devrai peut etre aller voir en bas '
+    - Je devrais peut etre aller voir maman.
     charactername: Scott
     MindDialogID: 1
     ContinueMindText: {fileID: 567294162}
   - textString:
-    - 'Je devrai peut etre aller voir en bas '
+    - 'Je devrais peut etre aller voir en bas '
     charactername: Scott
     MindDialogID: 2
     ContinueMindText: {fileID: 567294162}
   requiredBuddy: 
   DialogHUD: {fileID: 1271567752}
   continueButton: {fileID: 567294160}
+  trouverBuddy: 0
   textDialog: {fileID: 228951028}
   textCharacterName: {fileID: 53088799}
   typingSpeed: 0.05
