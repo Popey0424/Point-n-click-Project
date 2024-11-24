@@ -18,12 +18,13 @@ public class MindDialogManager
 public class S_Chapter : MonoBehaviour
 {
     private Inventory playerInventory;
-    private PlayerMovement playerMovement;
+    private PlayerMovement1 playerMovement1;
     [SerializeField] private List<MindDialogManager> mindDialog = new List<MindDialogManager>();
     [SerializeField] private string requiredBuddy;
     [SerializeField] private GameObject DialogHUD;
     [SerializeField] private GameObject continueButton;
     private MindDialogManager currentMindDialog;
+    public bool trouverBuddy = false;
 
     [Header("Reference")]
     [SerializeField] private TextMeshProUGUI textDialog;
@@ -38,7 +39,7 @@ public class S_Chapter : MonoBehaviour
 
     private void Start()
     {
-        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerMovement1 = FindObjectOfType<PlayerMovement1>();
     }
 
     private void Update()
@@ -55,6 +56,7 @@ public class S_Chapter : MonoBehaviour
             if (playerInventory != null && playerInventory.HasItem(requiredBuddy))
             {
                 TriggerEventRoom();
+                trouverBuddy = true;
                 //playerMovement.SwitchRobbieSkin();
                 Debug.Log("Buddy trouvé fleche debloquer");
 
@@ -67,9 +69,9 @@ public class S_Chapter : MonoBehaviour
     {
         continueButton.SetActive(false);
         DialogHUD.SetActive(true);
-        if(playerMovement != null)
+        if(playerMovement1 != null)
         {
-            playerMovement.StopMovement(false);
+            playerMovement1.StopMovement(false);
         }
         currentMindDialog = mindDialog.Find(e => e.MindDialogID == MindInteractionID);
         if(currentMindDialog != null)
@@ -118,9 +120,9 @@ public class S_Chapter : MonoBehaviour
         continueButton.SetActive(false);
         textDialog.text = "";
 
-        if(playerMovement != null)
+        if(playerMovement1 != null)
         {
-            playerMovement.StopMovement(true);
+            playerMovement1.StopMovement(true);
         }
 
         currentMindDialog = null;

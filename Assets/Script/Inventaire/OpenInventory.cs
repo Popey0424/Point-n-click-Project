@@ -10,6 +10,7 @@ public class OpenInventory : MonoBehaviour
     [SerializeField] private bool isInventoryOpen= false;
 
     [SerializeField] private Button LeaveInventory;
+    public PlayerMovement1 PlayerMovement1;
 
    
 
@@ -17,23 +18,33 @@ public class OpenInventory : MonoBehaviour
     private void Start()
     {
         inventory.SetActive(false);
+        PlayerMovement1 = FindObjectOfType<PlayerMovement1>();
     }
     public void OnClickInventory()
     {
         inventory.SetActive(true);
         LeaveInventory.gameObject.SetActive(true);
         isInventoryOpen = true;
+
+        if(PlayerMovement1 != null)
+        {
+            PlayerMovement1.StopMovement(false);
+        }
     }
     public void OnClickLeaveInventory()
     {
         if(isInventoryOpen == false)
         {
-            inventory.SetActive(false);
-            LeaveInventory.gameObject.SetActive(false);
+            Debug.Log("Ouvert");
         }
         else
         {
-            Debug.Log("Marche pas l'inventaire nest pas ouvert");
+            if(PlayerMovement1 != null)
+            {
+                PlayerMovement1.StopMovement(true);
+            }
+            inventory.SetActive(false);
+            LeaveInventory.gameObject.SetActive(false);
         }
     }
    

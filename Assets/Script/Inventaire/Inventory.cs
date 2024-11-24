@@ -6,22 +6,37 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
- 
+    public static Inventory Instance; // Singleton instance
+
     [Header("Inventory Settings")]
     [SerializeField] private int maxSlots = 5;
     [SerializeField] private List<Item> items;
 
     [Header("UI Settings")]
-    [SerializeField] private GameObject inventoryUI; 
-    [SerializeField] private Transform slotsParent;  
-    [SerializeField] private GameObject slotPrefab; 
+    [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private Transform slotsParent;
+    [SerializeField] private GameObject slotPrefab;
+
+    private void Awake()
+    {
+        // Vérifie si une autre instance existe déjà
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Détruit l'instance en double
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Persiste entre les scènes
+        }
+    }
 
     public bool AddItem(Item itemToAdd)
     {
         if (items.Count < maxSlots)
         {
             items.Add(itemToAdd);
-          UpdateInventoryUI();
+            UpdateInventoryUI();
             Debug.Log($"Item {itemToAdd.itemName} added to inventory.");
             return true;
         }
@@ -53,18 +68,16 @@ public class Inventory : MonoBehaviour
 
     private void UpdateInventoryUI()
     {
- 
         foreach (Transform child in slotsParent)
         {
             Destroy(child.gameObject);
         }
 
-     
         foreach (Item item in items)
         {
             GameObject slot = Instantiate(slotPrefab, slotsParent);
-            SpriteRenderer icon = slot.transform.GetChild(0).GetComponent<SpriteRenderer>(); 
-            icon = item.itemIcon;
+            Image icon = slot.transform.GetChild(0).GetComponent<Image>(); // UI.Image
+            icon.sprite = item.itemIcon; 
         }
     }
 
@@ -75,12 +88,10 @@ public class Inventory : MonoBehaviour
         {
             if (item.itemName == itemName)
             {
-                return true; 
+                return true;
             }
         }
-        return false; 
+        return false;
     }
     #endregion
-
-
 }

@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // Pour charger des scènes
+using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class S_CameraController : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class S_CameraController : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
 
     [Header("SceneTarget")]
-    [SerializeField] private Image imageFade; 
+    [SerializeField] private Image imageFadeIn; 
+    [SerializeField] private Image imageFadeOut; 
     [SerializeField] private List<SceneChoice> scenes; 
 
     [Header("Interaction")]
@@ -24,7 +26,9 @@ public class S_CameraController : MonoBehaviour
    
     void Start()
     {
-        
+        imageFadeIn.gameObject.SetActive(false);
+        imageFadeOut.gameObject.SetActive(true);
+        StartFadeOut();
     }
 
 
@@ -86,21 +90,12 @@ public class S_CameraController : MonoBehaviour
 
     private IEnumerator LoadScene(string sceneName)
     {
-        if (imageFade != null)
-        {
-         
-            imageFade.gameObject.SetActive(true);
-            for (float t = 0; t < 1; t += Time.deltaTime)
-            {
-                Color color = imageFade.color;
-                color.a = t;
-                imageFade.color = color;
-                yield return null;
-            }
-        }
-
- 
+        
+        StartFadeIn();
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene(sceneName);
+
+
     }
 
     [System.Serializable]
@@ -111,4 +106,22 @@ public class S_CameraController : MonoBehaviour
         public bool IsPossible;
         public int idDialogueMind;
     }
+
+    public void StartFadeIn()
+    {
+        imageFadeIn.gameObject.SetActive (true);
+        imageFadeIn.DOFade(1, 2.9f);
+    }
+
+    public void StartFadeOut()
+    {
+        imageFadeOut.gameObject.SetActive (true);
+        imageFadeOut.DOFade(0, 1.5f).OnComplete(ResetFade);
+    }
+    public void ResetFade()
+    {
+        imageFadeOut.gameObject.SetActive(false);
+    }
+
+    
 }

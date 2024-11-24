@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement1 : MonoBehaviour
 {
@@ -16,36 +16,50 @@ public class PlayerMovement1 : MonoBehaviour
     private bool isMoving = false;
     private bool canMove = true;
 
-    // Nouveau
-    [SerializeField] private Transform entryPoint; // Point d'entrée dans la scène
-    private bool isEnteringScene = true; // Pour gérer l'entrée automatique
-    [SerializeField] private Transform[] directionalPoints; // Points liés aux directions
+    [SerializeField] private Transform entryPoint;
+    private bool isEnteringScene = true;
+    [SerializeField] private Transform[] directionalPoints;
+
+    public S_Chapter s_Chapter;
+
+    [SerializeField] private GameObject specificIdlePrefab;
+    [SerializeField] private GameObject specificWalkingPrefab;
+    [SerializeField] private string specificSceneName;
+
+    private bool spritesReplaced = false; 
 
     void Start()
     {
         if (entryPoint != null)
         {
-            targetPosition = entryPoint.position; // Définir la position initiale comme le point d'entrée
-            isMoving = true; // Déplacement automatique au début de la scène
-            canMove = false; // Désactiver le contrôle joueur temporairement
+            targetPosition = entryPoint.position;
+            isMoving = true;
+            canMove = false;
             SetWalkingState();
         }
         else
         {
-            targetPosition = transform.position; // Sinon, reste sur place
+            targetPosition = transform.position;
             SetIdleState();
         }
     }
 
     void Update()
     {
+       
+        if (!spritesReplaced && SceneManager.GetActiveScene().name == specificSceneName && s_Chapter.trouverBuddy == true)
+        {
+            ReplacePrefabs();
+            spritesReplaced = true; 
+        }
+
         if (isEnteringScene)
         {
-            MovePlayer(); // Gérer le déplacement initial
+            MovePlayer();
             if (!isMoving)
             {
                 isEnteringScene = false;
-                canMove = true; // Autoriser le contrôle joueur après l'entrée
+                canMove = true;
             }
             return;
         }
@@ -127,6 +141,24 @@ public class PlayerMovement1 : MonoBehaviour
         else
         {
             transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    private void ReplacePrefabs()
+    {
+        
+        if (specificIdlePrefab != null)
+        {
+            Destroy(idleState);
+            idleState = Instantiate(specificIdlePrefab, transform);
+            idleState.SetActive(true);
+        }
+
+        if (specificWalkingPrefab != null)
+        {
+            Destroy(walkingState);
+            walkingState = Instantiate(specificWalkingPrefab, transform);
+            walkingState.SetActive(true);
         }
     }
 }

@@ -48,7 +48,7 @@ public class DialogManager : MonoBehaviour
     private void Start()
     {
         continueButton.SetActive(false);
-        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerMovement1 = FindObjectOfType<PlayerMovement1>();
     }
 
     public void StartDialogue(int interactionId)
@@ -82,7 +82,7 @@ public class DialogManager : MonoBehaviour
 
         TextDialog.DialogLine line = currentDialog.dialogLines[textId];
 
-        // Afficher le nom ou type de personnage
+       
         characterNameText.text = line.characterType.ToString();
         textDialog.text = "";
 

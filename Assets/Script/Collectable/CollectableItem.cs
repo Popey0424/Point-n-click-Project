@@ -82,12 +82,13 @@ public class CollectableItem : MonoBehaviour
 
         if (playerInventory != null && playerInventory.AddItem(item))
         {
+            Debug.Log("DEEEEEEEEEEEEEEEEEEEEESTROY");
             Debug.Log($"Collected {item.itemName}");
             Destroy(gameObject);
         }
         else
         {
-            Debug.LogWarning("PlayerInventory is not assigned or item could not be added.");
+            Debug.LogWarning("dfssef");
         }
     }
 }
