@@ -15,17 +15,17 @@ public class MainMenuManager : MonoBehaviour
     public GameObject CreditsMenu;
 
 
-    [Header("Animation")]
-    public Animator LeaveMenu;
-    public Animator OpenMinMenu;
+    //[Header("Animation")]
+    //public Animator LeaveMenu;
+    //public Animator OpenMinMenu;
 
     [SerializeField] private Image _imageFade;
     public KeyCode LeaveSettings;
     private bool IsInMainMenu;
     bool OpenMini = false;
 
-    [Header("RaycastImage")]
-    public GameObject RaycastLeaveGame;
+    //[Header("RaycastImage")]
+    //public GameObject RaycastLeaveGame;
 
     private void Start()
     {
@@ -33,7 +33,7 @@ public class MainMenuManager : MonoBehaviour
         SettingsMenu.SetActive(false);
         CreditsMenu.SetActive(false);
         IsInMainMenu = true;
-        RaycastLeaveGame.SetActive(false);
+        //RaycastLeaveGame.SetActive(false);
 
 
     }
@@ -138,7 +138,7 @@ public class MainMenuManager : MonoBehaviour
             bool IsOpen = animator_LeaveGame.GetBool("IsOpen");
             animator_LeaveGame.SetBool("IsOpen", true);
         }
-        RaycastLeaveGame.SetActive(true);
+        //RaycastLeaveGame.SetActive(true);
     }
 
     public void OnClickYes()
@@ -154,7 +154,7 @@ public class MainMenuManager : MonoBehaviour
             bool IsOpen = animator_LeaveGame.GetBool("IsOpen");
             animator_LeaveGame.SetBool("IsOpen", false);
         }
-        RaycastLeaveGame.SetActive(false);
+        //RaycastLeaveGame.SetActive(false);
     }
 
     public void CloseGame()
