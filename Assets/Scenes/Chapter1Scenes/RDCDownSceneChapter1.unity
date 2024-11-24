@@ -1750,7 +1750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mindDialog:
   - textString:
-    - "je devrais me d\xE9p\xEAcher d'aller chercher mon tabouret sinon Nini sera
+    - "Je devrais me d\xE9p\xEAcher d'aller chercher mon tabouret sinon Nini sera
       tout f\xE2ch\xE9e"
     charactername: Robbie
     MindDialogID: 0
