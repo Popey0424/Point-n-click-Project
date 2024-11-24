@@ -146,7 +146,7 @@ public class PlayerMovement1 : MonoBehaviour
 
     private void ReplacePrefabs()
     {
-        
+        Debug.Log("Switching sprites...");
         if (specificIdlePrefab != null)
         {
             Destroy(idleState);

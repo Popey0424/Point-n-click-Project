@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory Instance; // Singleton instance
+    
 
     [Header("Inventory Settings")]
     [SerializeField] private int maxSlots = 5;
@@ -17,19 +17,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform slotsParent;
     [SerializeField] private GameObject slotPrefab;
 
-    private void Awake()
-    {
-        // Vérifie si une autre instance existe déjà
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject); // Détruit l'instance en double
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Persiste entre les scènes
-        }
-    }
+    
 
     public bool AddItem(Item itemToAdd)
     {

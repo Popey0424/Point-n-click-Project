@@ -666,7 +666,7 @@ MonoBehaviour:
   items: []
   inventoryUI: {fileID: 152486732}
   slotsParent: {fileID: 152486733}
-  slotPrefab: {fileID: 9050520123152696734, guid: 0ec1b20019a0aa5409fbb9a39427ab8a, type: 3}
+  slotPrefab: {fileID: 5880620483635273721, guid: 0ec1b20019a0aa5409fbb9a39427ab8a, type: 3}
 --- !u!114 &597930837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,6 +691,10 @@ MonoBehaviour:
   - {fileID: 2133746698}
   - {fileID: 1737423243}
   - {fileID: 240620408}
+  s_Chapter: {fileID: 1781310148}
+  specificIdlePrefab: {fileID: 0}
+  specificWalkingPrefab: {fileID: 0}
+  specificSceneName: 
 --- !u!1 &664857419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,6 +1622,7 @@ MonoBehaviour:
   requiredBuddy: Buddy
   DialogHUD: {fileID: 1546712283}
   continueButton: {fileID: 296207325}
+  trouverBuddy: 0
   textDialog: {fileID: 1101450007}
   textCharacterName: {fileID: 1050965733}
   typingSpeed: 0.1
