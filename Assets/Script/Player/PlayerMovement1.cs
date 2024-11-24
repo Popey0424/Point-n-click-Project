@@ -16,15 +16,40 @@ public class PlayerMovement1 : MonoBehaviour
     private bool isMoving = false;
     private bool canMove = true;
 
+    // Nouveau
+    [SerializeField] private Transform entryPoint; // Point d'entrée dans la scène
+    private bool isEnteringScene = true; // Pour gérer l'entrée automatique
+    [SerializeField] private Transform[] directionalPoints; // Points liés aux directions
+
     void Start()
     {
-        targetPosition = transform.position;
-        SetIdleState();
+        if (entryPoint != null)
+        {
+            targetPosition = entryPoint.position; // Définir la position initiale comme le point d'entrée
+            isMoving = true; // Déplacement automatique au début de la scène
+            canMove = false; // Désactiver le contrôle joueur temporairement
+            SetWalkingState();
+        }
+        else
+        {
+            targetPosition = transform.position; // Sinon, reste sur place
+            SetIdleState();
+        }
     }
-
 
     void Update()
     {
+        if (isEnteringScene)
+        {
+            MovePlayer(); // Gérer le déplacement initial
+            if (!isMoving)
+            {
+                isEnteringScene = false;
+                canMove = true; // Autoriser le contrôle joueur après l'entrée
+            }
+            return;
+        }
+
         HandleInput();
         MovePlayer();
     }
@@ -35,10 +60,9 @@ public class PlayerMovement1 : MonoBehaviour
         if (!enable)
         {
             isMoving = false;
-            SetIdleState(); 
+            SetIdleState();
         }
     }
-
 
     private void SetIdleState()
     {
@@ -53,17 +77,24 @@ public class PlayerMovement1 : MonoBehaviour
             Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero, Mathf.Infinity, GroundLayer);
 
-
-            
             if (hit.collider != null)
             {
                 targetPosition = hit.point;
                 isMoving = true;
                 FlipSprite(targetPosition.x);
                 SetWalkingState();
-
-
             }
+        }
+    }
+
+    public void MoveToDirection(int directionIndex)
+    {
+        if (directionIndex >= 0 && directionIndex < directionalPoints.Length)
+        {
+            targetPosition = directionalPoints[directionIndex].position;
+            isMoving = true;
+            FlipSprite(targetPosition.x);
+            SetWalkingState();
         }
     }
 
@@ -71,15 +102,12 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (isMoving)
         {
-
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
-
 
             if (Vector2.Distance(transform.position, targetPosition) <= stopDistance)
             {
-                isMoving = false; 
-                SetIdleState();   
+                isMoving = false;
+                SetIdleState();
             }
         }
     }

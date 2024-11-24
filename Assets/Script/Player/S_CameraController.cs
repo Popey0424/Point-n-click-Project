@@ -16,6 +16,7 @@ public class S_CameraController : MonoBehaviour
     [Header("Interaction")]
     [SerializeField] private bool hasInteraction;
 
+
     public S_Chapter S_Chapter;
 
     
@@ -40,26 +41,29 @@ public class S_CameraController : MonoBehaviour
             Debug.Log("Nécessite un item");
             if (S_Chapter.CompleteIterraction == true)
             {
-                if (choice >= 0 && choice < scenes.Count)
+                //hasInteraction = false;
+                Debug.Log("dezde");
+                if (choice >= 0 && choice < scenes.Count && scenes[choice].IsPossible == true)
                 {
                     string nextScene = scenes[choice].NextScene;
                     Debug.Log($"Chargement de la scène : {nextScene}");
                     StartCoroutine(LoadScene(nextScene));
+                    
                 }
                 else
                 {
-                    Debug.LogWarning("Choix invalide !");
+                    Debug.Log("Choix invalide !");
                 }
             }
             else
             {
-                S_Chapter.StartMindDialogue(1);
+                S_Chapter.StartMindDialogue(scenes[choice].idDialogueMind);
             }
         }
         else if (scenes[choice].IsPossible == false)
         {
             Debug.Log("Impossible d'aller par la");
-            S_Chapter.StartMindDialogue(1);
+            S_Chapter.StartMindDialogue(scenes[choice].idDialogueMind);
         }
         else
         {
@@ -105,5 +109,6 @@ public class S_CameraController : MonoBehaviour
         public string NextScene; 
         public int sceneInteraction;
         public bool IsPossible;
+        public int idDialogueMind;
     }
 }

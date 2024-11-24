@@ -55,7 +55,7 @@ public class S_Chapter : MonoBehaviour
             if (playerInventory != null && playerInventory.HasItem(requiredBuddy))
             {
                 TriggerEventRoom();
-                playerMovement.SwitchRobbieSkin();
+                //playerMovement.SwitchRobbieSkin();
                 Debug.Log("Buddy trouvé fleche debloquer");
 
             }
@@ -115,6 +115,7 @@ public class S_Chapter : MonoBehaviour
     private void EndDialog()
     {
         DialogHUD.SetActive(false);
+        continueButton.SetActive(false);
         textDialog.text = "";
 
         if(playerMovement != null)
@@ -132,6 +133,7 @@ public class S_Chapter : MonoBehaviour
         if (playerInventory != null && playerInventory.HasItem(requiredBuddy))
         {
             CompleteIterraction = true;
+            
         }
     }
 }

@@ -1271,7 +1271,8 @@ MonoBehaviour:
   scenes:
   - NextScene: RDCSceneChapter1
     sceneInteraction: 0
-    IsPossible: 0
+    IsPossible: 1
+    idDialogueMind: 0
   hasInteraction: 1
   S_Chapter: {fileID: 1781310148}
 --- !u!1 &521356077
@@ -3483,7 +3484,7 @@ MonoBehaviour:
     - '""'''
     - fesd
     charactername: Robbie
-    MindDialogID: 1
+    MindDialogID: 0
     ContinueMindText: {fileID: 1206058780}
   requiredBuddy: Buddy
   DialogHUD: {fileID: 1613892350}
