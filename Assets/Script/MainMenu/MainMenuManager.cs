@@ -24,6 +24,8 @@ public class MainMenuManager : MonoBehaviour
     private bool IsInMainMenu;
     bool OpenMini = false;
 
+    [SerializeField] private AudioSource audioClick;
+
     //[Header("RaycastImage")]
     //public GameObject RaycastLeaveGame;
 
@@ -58,6 +60,7 @@ public class MainMenuManager : MonoBehaviour
     //Start Game
     public void StartGame()
     {
+        audioClick.Play();
         _imageFade.gameObject.SetActive(true);
         _imageFade.DOFade(1, 2.9f).OnComplete(FadeComplete);
     }
@@ -70,6 +73,7 @@ public class MainMenuManager : MonoBehaviour
     //Settings
     public void OpenSettings()
     {
+        audioClick.Play();
         _imageFade.gameObject.SetActive(true);
         _imageFade.DOFade(1, 1f).OnComplete(FadeSettingsComplete);
     }
@@ -83,6 +87,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnClickBackSettings()
     {
+        audioClick.Play();
         _imageFade.gameObject.SetActive(true);
         _imageFade.DOFade(1, 1f).OnComplete(FadeMenuComplete);
     }
@@ -111,6 +116,7 @@ public class MainMenuManager : MonoBehaviour
     //Credits
     public void OnClickCredits()
     {
+        audioClick.Play();
         _imageFade.gameObject.SetActive(true);
         _imageFade.DOFade(1, 1f).OnComplete(FadeCreditsComplete);
     }
@@ -122,8 +128,9 @@ public class MainMenuManager : MonoBehaviour
         _imageFade.DOFade(0, 1).OnComplete(ResetFade);
     }
 
-    public void OnClickLeaveCreditos()
+    public void OnClickLeaveCredits()
     {
+        audioClick.Play();
         _imageFade.gameObject.SetActive(true);
         _imageFade.DOFade(1, 1f).OnComplete(FadeMenuComplete);
     }
@@ -131,15 +138,21 @@ public class MainMenuManager : MonoBehaviour
     //Quit Game
     public void OnClickLeaveGame()
     {
-        Animator animator_LeaveGame = WarningLeaveMenu.GetComponent<Animator>();
+        audioClick.Play();
+        _imageFade.gameObject.SetActive(true);
+        _imageFade.DOFade(1, 2.9f).OnComplete(CloseGame);
 
-        if (animator_LeaveGame != null)
-        {
-            bool IsOpen = animator_LeaveGame.GetBool("IsOpen");
-            animator_LeaveGame.SetBool("IsOpen", true);
-        }
+        //Animator animator_LeaveGame = WarningLeaveMenu.GetComponent<Animator>();
+
+        //if (animator_LeaveGame != null)
+        //{
+        //    bool IsOpen = animator_LeaveGame.GetBool("IsOpen");
+        //    animator_LeaveGame.SetBool("IsOpen", true);
+        //}
         //RaycastLeaveGame.SetActive(true);
     }
+
+
 
     public void OnClickYes()
     {
