@@ -809,6 +809,11 @@ Transform:
   - {fileID: 1703005066}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &935017398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4445852787791772374, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+  m_PrefabInstance: {fileID: 4475807446321142307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &951051106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,10 +1729,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogList:
   - dialogLines:
-    - characterType: 4
-      text: dedede
     - characterType: 3
-      text: dzsdzqqzdq
+      text: "Robbie mais qu'est ce que tu fais encore debout ? C'est pas ton heure
+        d'\xEAtre hors de ton lit !"
+    - characterType: 4
+      text: "Mais Nini, je dois trop trop all\xE9 faire pipi, c'est super super press\xE9
+        !!"
+    - characterType: 3
+      text: "Bon, viens avec moi mais fais vite pour pas r\xE9veiller Maman."
+    - characterType: 0
+      text: '*chuchotement*ne perd pas de temps.'
+    - characterType: 3
+      text: '?'
     InteractionID: 0
     ContinueText: {fileID: 1158062908}
     CollisionInteraction: {fileID: 1162924248}
@@ -1739,7 +1752,7 @@ MonoBehaviour:
   characterNameText: {fileID: 1050965733}
   chapter1: {fileID: 0}
   playerMovement1: {fileID: 597930837}
-  ArrowsPositions: {fileID: 0}
+  ArrowsPositions: {fileID: 935017398}
 --- !u!114 &1781310150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2152,6 +2165,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 597930837}
+    - target: {fileID: 4413276053095744741, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 38bd93f8374a09b4eaf929bf955304f5, type: 2}
+    - target: {fileID: 4413276053095744741, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509227037887320447, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6754716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509227037887320447, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+      propertyPath: m_Color.g
+      value: 0.10068343
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509227037887320447, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2533292
+      objectReference: {fileID: 0}
     - target: {fileID: 4686125472055116958, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_Name
       value: ____Canvas____
@@ -2172,6 +2205,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 597930837}
+    - target: {fileID: 7645523041764524913, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 38bd93f8374a09b4eaf929bf955304f5, type: 2}
+    - target: {fileID: 7645523041764524913, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7686880781286417693, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
