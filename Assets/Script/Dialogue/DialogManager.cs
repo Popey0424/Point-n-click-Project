@@ -43,7 +43,10 @@ public class DialogManager : MonoBehaviour
     private PlayerMovement playerMovement;
     public Chapter1 chapter1;
     public PlayerMovement1 playerMovement1;
-    
+
+
+    [SerializeField] private GameObject ArrowsPositions;
+
 
     private void Start()
     {
@@ -53,6 +56,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialogue(int interactionId)
     {
+        ArrowsPositions.gameObject.SetActive(false);
         HUDdialog.SetActive(true);
         textDialog.gameObject.SetActive(true);
         continueButton.SetActive(false);
@@ -110,6 +114,7 @@ public class DialogManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        ArrowsPositions.gameObject.SetActive(true);
         HUDdialog.SetActive(false);
         continueButton.SetActive(false);
         textDialog.text = "";

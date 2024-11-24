@@ -26,6 +26,8 @@ public class PlayerMovement1 : MonoBehaviour
     [SerializeField] private GameObject specificWalkingPrefab;
     [SerializeField] private string specificSceneName;
 
+  
+
     private bool spritesReplaced = false; 
 
     void Start()
@@ -33,6 +35,7 @@ public class PlayerMovement1 : MonoBehaviour
         if (entryPoint != null)
         {
             targetPosition = entryPoint.position;
+            FlipSprite(targetPosition.x);
             isMoving = true;
             canMove = false;
             SetWalkingState();
