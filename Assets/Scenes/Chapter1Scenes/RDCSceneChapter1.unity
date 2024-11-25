@@ -1717,7 +1717,7 @@ MonoBehaviour:
     - characterType: 3
       text: "Bon, viens avec moi mais fais vite pour pas r\xE9veiller Maman."
     - characterType: 0
-      text: '*chuchotement*ne perd pas de temps.'
+      text: '*Chuchotement* ne perd pas de temps.'
     - characterType: 3
       text: '?'
     InteractionID: 0
