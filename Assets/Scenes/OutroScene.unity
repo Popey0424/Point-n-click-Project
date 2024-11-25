@@ -1039,6 +1039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1652913261}
   - component: {fileID: 1652913260}
+  - component: {fileID: 1652913262}
   m_Layer: 0
   m_Name: DeathSound
   m_TagString: Untagged
@@ -1157,6 +1158,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!164 &1652913262
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652913259}
+  m_Enabled: 1
+  m_DryLevel: -5060
+  m_Room: 0
+  m_RoomHF: 0
+  m_DecayTime: 6.6
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -7349
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 40
+  m_Density: 34
+  m_HFReference: 11301
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0.119
+  m_ReverbPreset: 27
 --- !u!1 &1988031999
 GameObject:
   m_ObjectHideFlags: 0
