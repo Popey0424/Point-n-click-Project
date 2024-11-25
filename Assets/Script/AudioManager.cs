@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        // eviter le load du son dans les cha^pitre
+    
         
     }
 

@@ -1249,13 +1249,13 @@ MonoBehaviour:
   imageFadeOut: {fileID: 1604362194}
   scenes:
   - NextScene: RDCDownSceneChapter1Scene2
-    sceneInteraction: 0
+    SceneInteraction: 0
     IsPossible: 1
-    idDialogueMind: 1
+    IdDialogueMind: 0
   - NextScene: RoomSceneChapter1
-    sceneInteraction: 1
+    SceneInteraction: 0
     IsPossible: 0
-    idDialogueMind: 1
+    IdDialogueMind: 0
   hasInteraction: 1
   transitionAudio: {fileID: 191144565}
   S_Chapter: {fileID: 1781310148}
@@ -3158,7 +3158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2056413830
 RectTransform:
   m_ObjectHideFlags: 0

@@ -45,11 +45,10 @@ public class S_CameraController : MonoBehaviour
     {
         if (hasInteraction == true)
         {
-            Debug.Log("Nécessite un item");
+  
             if (S_Chapter.CompleteIterraction == true)
             {
-                //hasInteraction = false;
-                Debug.Log("dezde");
+              
                 if (choice >= 0 && choice < scenes.Count && scenes[choice].IsPossible == true)
                 {
                     transitionAudio.Play();
@@ -60,32 +59,32 @@ public class S_CameraController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Choix invalide !");
+                    Debug.Log("Manque Scene");
                 }
             }
             else
             {
-                S_Chapter.StartMindDialogue(scenes[choice].idDialogueMind);
+                S_Chapter.StartMindDialogue(scenes[choice].IdDialogueMind);
             }
         }
         else if (scenes[choice].IsPossible == false)
         {
-            Debug.Log("Impossible d'aller par la");
-            S_Chapter.StartMindDialogue(scenes[choice].idDialogueMind);
+
+            S_Chapter.StartMindDialogue(scenes[choice].IdDialogueMind);
         }
         else
         {
-            Debug.Log("SwitchScene");
-            if (choice >= 0 && choice < scenes.Count && choice == scenes[choice].sceneInteraction)
+
+            if (choice >= 0 && choice < scenes.Count && choice == scenes[choice].SceneInteraction)
             {
-                Debug.Log("Trouvé !");
+  
                 string nextScene = scenes[choice].NextScene;
-                Debug.Log($"Chargement de la scène : {nextScene}");
+
                 StartCoroutine(LoadScene(nextScene));
             }
             else
             {
-                Debug.LogWarning("Choix invalide !");
+                Debug.Log("Manque Scene");
             }
         }
         
@@ -106,9 +105,9 @@ public class S_CameraController : MonoBehaviour
     public class SceneChoice
     {
         public string NextScene; 
-        public int sceneInteraction;
+        public int SceneInteraction;
         public bool IsPossible;
-        public int idDialogueMind;
+        public int IdDialogueMind;
     }
 
     public void StartFadeIn()

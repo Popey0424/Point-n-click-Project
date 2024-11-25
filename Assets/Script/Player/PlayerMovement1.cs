@@ -9,8 +9,8 @@ public class PlayerMovement1 : MonoBehaviour
     [SerializeField] private GameObject idleState;
     [SerializeField] private GameObject walkingState;
     public LayerMask GroundLayer;
-    public float speed = 5f;
-    public float stopDistance = 0.1f;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float stopDistance = 0.1f;
 
     private Vector2 targetPosition;
     private bool isMoving = false;
@@ -147,9 +147,9 @@ public class PlayerMovement1 : MonoBehaviour
         }
     }
 
-    private void ReplacePrefabs()
+    public void ReplacePrefabs()
     {
-        Debug.Log("Switching sprites...");
+        
         if (specificIdlePrefab != null)
         {
             Destroy(idleState);
@@ -161,7 +161,7 @@ public class PlayerMovement1 : MonoBehaviour
         {
             Destroy(walkingState);
             walkingState = Instantiate(specificWalkingPrefab, transform);
-            walkingState.SetActive(true);
+            walkingState.SetActive(false);
         }
     }
 }

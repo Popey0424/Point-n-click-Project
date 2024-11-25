@@ -12,20 +12,12 @@ public class Chapter1 : MonoBehaviour
     [SerializeField] private Image RaycastImage;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject MotherKilling;
-    private PlayerMovement playermovement;
+    private PlayerMovement1 playermovement1;
 
     private void Start()
     {
         RaycastImage.gameObject.SetActive(false);
         FadeImage.gameObject.SetActive(false);
-    }
-
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.H))
-        //{
-        //    EndOfChapterOne();
-        //}
     }
 
     public void EndOfChapterOne()
@@ -47,8 +39,7 @@ public class Chapter1 : MonoBehaviour
         
             Vector3 playerPosition = player.transform.position;
 
-            MotherKilling.transform.DOMove(playerPosition, 5.0f).SetEase(Ease.Linear)
-                .OnComplete(() => Debug.Log("MotherKilling est arrivé à la position du joueur."));
+            MotherKilling.transform.DOMove(playerPosition, 5.0f).SetEase(Ease.Linear);
         }
     }
 

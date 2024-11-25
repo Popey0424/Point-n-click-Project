@@ -40,7 +40,7 @@ public class DialogManager : MonoBehaviour
     private int currentInteractionId;
     private int textId;
     private TextDialog currentDialog;
-    private PlayerMovement playerMovement;
+    
     public Chapter1 chapter1;
     public Chapter2 chapter2;
     public PlayerMovement1 playerMovement1;

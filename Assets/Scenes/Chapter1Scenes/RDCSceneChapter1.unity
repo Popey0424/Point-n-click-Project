@@ -627,17 +627,17 @@ MonoBehaviour:
   imageFadeOut: {fileID: 1118636040}
   scenes:
   - NextScene: RDCDownSceneChapter1
-    sceneInteraction: 0
+    SceneInteraction: 0
     IsPossible: 1
-    idDialogueMind: 0
+    IdDialogueMind: 0
   - NextScene: RoomSceneChapter1
-    sceneInteraction: 1
+    SceneInteraction: 0
     IsPossible: 0
-    idDialogueMind: 1
+    IdDialogueMind: 1
   - NextScene: RoomSceneBathroom
-    sceneInteraction: 2
+    SceneInteraction: 0
     IsPossible: 0
-    idDialogueMind: 1
+    IdDialogueMind: 1
   hasInteraction: 0
   transitionAudio: {fileID: 385285327}
   S_Chapter: {fileID: 1781310148}

@@ -161,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 2953898124359264091, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1781310149}
+      objectReference: {fileID: 0}
     - target: {fileID: 2953898124359264091, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickLeaveInventory
@@ -373,7 +373,7 @@ PrefabInstance:
     - target: {fileID: 7686880781286417693, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1781310149}
+      objectReference: {fileID: 0}
     - target: {fileID: 7686880781286417693, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickInventory
@@ -382,6 +382,8 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4599897053965622124, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
     - {fileID: 8051015251450236388, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+    - {fileID: 3663078072497801282, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+    - {fileID: 4268963218021976278, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4126436411366911143, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       insertIndex: -1
@@ -490,7 +492,8 @@ PrefabInstance:
       propertyPath: m_InstanceId
       value: -111770
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5392261887384733901, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -974,17 +977,17 @@ MonoBehaviour:
   imageFadeOut: {fileID: 1257391916}
   scenes:
   - NextScene: SalonSceneChapter2
-    sceneInteraction: 0
+    SceneInteraction: 0
     IsPossible: 1
-    idDialogueMind: 0
+    IdDialogueMind: 0
   - NextScene: SalonSceneChapter2
-    sceneInteraction: 1
+    SceneInteraction: 0
     IsPossible: 0
-    idDialogueMind: 1
+    IdDialogueMind: 0
   - NextScene: SalonSceneChapter2
-    sceneInteraction: 2
+    SceneInteraction: 0
     IsPossible: 0
-    idDialogueMind: 2
+    IdDialogueMind: 0
   hasInteraction: 0
   transitionAudio: {fileID: 1374324368}
   S_Chapter: {fileID: 1781310151}
@@ -1287,12 +1290,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642282842}
   m_CullTransparentMesh: 1
---- !u!1 &742545817 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3663078072497801282, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
-  m_PrefabInstance: {fileID: 182329577}
-  m_PrefabAsset: {fileID: 0}
---- !u!43 &907751846
+--- !u!43 &942911099
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2062,17 +2060,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &1648139523 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2953898124359264091, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
-  m_PrefabInstance: {fileID: 182329577}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1715737925 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
@@ -2104,7 +2091,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1781310147}
-  - component: {fileID: 1781310149}
   - component: {fileID: 1781310150}
   - component: {fileID: 1781310151}
   m_Layer: 0
@@ -2129,22 +2115,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1781310149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781310145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5503948a3ad85a42bf7803da92251b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 742545817}
-  isInventoryOpen: 0
-  LeaveInventory: {fileID: 1648139523}
-  PlayerMovement1: {fileID: 1715737925}
 --- !u!114 &1781310150
 MonoBehaviour:
   m_ObjectHideFlags: 0

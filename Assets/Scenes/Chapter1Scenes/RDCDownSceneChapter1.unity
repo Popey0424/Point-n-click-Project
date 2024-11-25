@@ -722,13 +722,13 @@ MonoBehaviour:
   imageFadeOut: {fileID: 1529106906}
   scenes:
   - NextScene: RDCSceneChapter1
-    sceneInteraction: 0
+    SceneInteraction: 0
     IsPossible: 0
-    idDialogueMind: 0
+    IdDialogueMind: 0
   - NextScene: KitchenSceneChapter1
-    sceneInteraction: 1
+    SceneInteraction: 1
     IsPossible: 1
-    idDialogueMind: 0
+    IdDialogueMind: 0
   hasInteraction: 0
   transitionAudio: {fileID: 167249168}
   S_Chapter: {fileID: 1781310148}
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 597930836}
   - component: {fileID: 597930837}
   m_Layer: 7
-  m_Name: ____Player Scott____
+  m_Name: ____Player Robbie____
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1341,7 +1341,7 @@ PrefabInstance:
     - target: {fileID: 2953898124359264091, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1781310149}
+      objectReference: {fileID: 0}
     - target: {fileID: 2953898124359264091, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickLeaveInventory
@@ -1597,7 +1597,7 @@ PrefabInstance:
     - target: {fileID: 7686880781286417693, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1781310149}
+      objectReference: {fileID: 0}
     - target: {fileID: 7686880781286417693, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickInventory
@@ -1803,7 +1803,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1781310147}
   - component: {fileID: 1781310148}
-  - component: {fileID: 1781310149}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1853,22 +1852,6 @@ MonoBehaviour:
   textCharacterName: {fileID: 1241775386}
   typingSpeed: 0.05
   CompleteIterraction: 0
---- !u!114 &1781310149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781310145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5503948a3ad85a42bf7803da92251b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  isInventoryOpen: 0
-  LeaveInventory: {fileID: 0}
-  PlayerMovement1: {fileID: 597930837}
 --- !u!1 &1856639730
 GameObject:
   m_ObjectHideFlags: 0
