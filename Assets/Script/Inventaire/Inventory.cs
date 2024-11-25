@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    
+    private static Inventory Instance;
 
     [Header("Inventory Settings")]
     [SerializeField] private int maxSlots = 5;
@@ -17,16 +17,27 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform slotsParent;
     [SerializeField] private GameObject slotPrefab;
 
-    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        
 
-    public bool AddItem(Item itemToAdd)
+    }
+
+        public bool AddItem(Item itemToAdd)
     {
         if (items.Count < maxSlots)
         {
             items.Add(itemToAdd);
             UpdateInventoryUI();
             Debug.Log($"Item {itemToAdd.itemName} added to inventory.");
+            
             return true;
+            
         }
         else
         {

@@ -72,10 +72,10 @@ public class CollectableItem : MonoBehaviour
     {
       
         {
-            GameObject player = GameObject.FindWithTag("Player");
-            if (player != null)
+            GameObject inventory = GameObject.FindWithTag("Inventory");
+            if (inventory != null)
             {
-                playerInventory = player.GetComponent<Inventory>();
+                playerInventory = inventory.GetComponent<Inventory>();
             }
         }
 

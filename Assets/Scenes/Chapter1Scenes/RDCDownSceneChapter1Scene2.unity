@@ -1121,6 +1121,7 @@ MonoBehaviour:
     IsPossible: 1
     idDialogueMind: 0
   hasInteraction: 0
+  transitionAudio: {fileID: 0}
   S_Chapter: {fileID: 1781310148}
 --- !u!1001 &524174638
 PrefabInstance:
@@ -1197,7 +1198,6 @@ GameObject:
   m_Component:
   - component: {fileID: 597930833}
   - component: {fileID: 597930835}
-  - component: {fileID: 597930836}
   - component: {fileID: 597930837}
   m_Layer: 7
   m_Name: ____Player Robbie____
@@ -1250,23 +1250,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &597930836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597930830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ed6227d881db549a91a04c6bec9dcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSlots: 5
-  items: []
-  inventoryUI: {fileID: 152486732}
-  slotsParent: {fileID: 152486733}
-  slotPrefab: {fileID: 9050520123152696734, guid: 0ec1b20019a0aa5409fbb9a39427ab8a, type: 3}
 --- !u!114 &597930837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2875,8 +2858,8 @@ MonoBehaviour:
   textDialog: {fileID: 1101450007}
   characterNameText: {fileID: 1050965733}
   chapter1: {fileID: 1781310150}
-  playerMovement1: {fileID: 0}
-  ArrowsPositions: {fileID: 0}
+  playerMovement1: {fileID: 597930837}
+  ArrowsPositions: {fileID: 1043455262}
 --- !u!114 &1781310150
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -47,10 +47,10 @@ public class S_Chapter : MonoBehaviour
         {
             if (playerInventory == null)
             {
-                GameObject playerObj = GameObject.FindWithTag("Player");
-                if (playerObj != null)
+                GameObject inventory = GameObject.FindWithTag("Inventory");
+                if (inventory != null)
                 {
-                    playerInventory = playerObj.GetComponent<Inventory>();
+                    playerInventory = inventory.GetComponent<Inventory>();
                 }
             }
             if (playerInventory != null && playerInventory.HasItem(requiredBuddy))
