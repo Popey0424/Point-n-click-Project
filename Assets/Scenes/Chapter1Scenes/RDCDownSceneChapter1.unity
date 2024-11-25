@@ -1631,6 +1631,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1529106908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4445852787791772374, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+  m_PrefabInstance: {fileID: 1529106905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1634897501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1840,6 +1845,7 @@ MonoBehaviour:
   requiredBuddy: Buddy
   DialogHUD: {fileID: 1770919738}
   continueButton: {fileID: 349494217}
+  ArrowsPositions: {fileID: 1529106908}
   trouverBuddy: 0
   textDialog: {fileID: 312049796}
   typingSpeed: 0.02

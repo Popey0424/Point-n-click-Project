@@ -172,6 +172,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void CloseGame()
     {
+        Debug.Log("Quit Game");
         Application.Quit();
     }
 

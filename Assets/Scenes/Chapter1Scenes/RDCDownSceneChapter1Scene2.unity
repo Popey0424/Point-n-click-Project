@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &185010962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2639,6 +2639,7 @@ MonoBehaviour:
   requiredBuddy: Buddy
   DialogHUD: {fileID: 1546712283}
   continueButton: {fileID: 296207325}
+  ArrowsPositions: {fileID: 1043455262}
   trouverBuddy: 0
   textDialog: {fileID: 1101450007}
   typingSpeed: 0.02
@@ -2800,7 +2801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1837947920
 RectTransform:
   m_ObjectHideFlags: 0

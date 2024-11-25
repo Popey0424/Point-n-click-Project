@@ -1689,6 +1689,7 @@ MonoBehaviour:
   requiredBuddy: Buddy
   DialogHUD: {fileID: 1546712283}
   continueButton: {fileID: 296207325}
+  ArrowsPositions: {fileID: 935017398}
   trouverBuddy: 0
   textDialog: {fileID: 1101450007}
   typingSpeed: 0.02

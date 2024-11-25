@@ -23,6 +23,7 @@ public class S_Chapter : MonoBehaviour
     [SerializeField] private string requiredBuddy;
     [SerializeField] private GameObject DialogHUD;
     [SerializeField] private GameObject continueButton;
+    [SerializeField] private GameObject ArrowsPositions;
     private MindDialogManager currentMindDialog;
     public bool trouverBuddy = false;
 
@@ -68,6 +69,7 @@ public class S_Chapter : MonoBehaviour
 
     public void StartMindDialogue(int MindInteractionID)
     {
+        ArrowsPositions.gameObject.SetActive(false);
         continueButton.SetActive(false);
         DialogHUD.SetActive(true);
         if(playerMovement1 != null)
@@ -117,6 +119,7 @@ public class S_Chapter : MonoBehaviour
     }
     private void EndDialog()
     {
+        ArrowsPositions.gameObject.SetActive(true);
         DialogHUD.SetActive(false);
         continueButton.SetActive(false);
         textDialog.text = "";
