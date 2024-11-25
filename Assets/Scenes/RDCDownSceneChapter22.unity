@@ -778,17 +778,17 @@ MonoBehaviour:
   imageFadeOut: {fileID: 941907017}
   scenes:
   - NextScene: RDCScheneChapter22
-    sceneInteraction: 0
+    SceneInteraction: 0
     IsPossible: 0
-    idDialogueMind: 0
+    IdDialogueMind: 0
   - NextScene: RDCSceneChapter22
-    sceneInteraction: 1
+    SceneInteraction: 1
     IsPossible: 1
-    idDialogueMind: 1
+    IdDialogueMind: 1
   - NextScene: RDCSceneChapter22
-    sceneInteraction: 2
+    SceneInteraction: 2
     IsPossible: 0
-    idDialogueMind: 2
+    IdDialogueMind: 2
   hasInteraction: 1
   transitionAudio: {fileID: 756838268}
   S_Chapter: {fileID: 1781310149}
@@ -1874,7 +1874,7 @@ PrefabInstance:
     - target: {fileID: 2953898124359264091, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1781310150}
+      objectReference: {fileID: 0}
     - target: {fileID: 2953898124359264091, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickLeaveInventory
@@ -2118,7 +2118,7 @@ PrefabInstance:
     - target: {fileID: 7686880781286417693, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1781310150}
+      objectReference: {fileID: 0}
     - target: {fileID: 7686880781286417693, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickInventory
@@ -2139,7 +2139,240 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4126436411366911143, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
   m_PrefabInstance: {fileID: 1560975921}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &1688464113
+--- !u!1001 &1731004953
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392261887384733901, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392261887384733901, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: slotsParent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: s_Chapter
+      value: 
+      objectReference: {fileID: 1781310149}
+    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: entryPoint
+      value: 
+      objectReference: {fileID: 2042806646}
+    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: directionalPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: directionalPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 326830628}
+    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: directionalPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 326830628}
+    - target: {fileID: 6785195082043464882, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_Name
+      value: ____Player Scott____ (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160633404532072793, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 710740811}
+    - target: {fileID: 7160633404532072793, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+      propertyPath: m_InstanceId
+      value: -180332
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5392261887384733901, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
+--- !u!1 &1744755981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5506394030114638589, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+  m_PrefabInstance: {fileID: 1560975921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1744755983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1331719584765058562, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+  m_PrefabInstance: {fileID: 1560975921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744755981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1781310145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1781310147}
+  - component: {fileID: 1781310148}
+  - component: {fileID: 1781310149}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1781310147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781310145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1781310148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781310145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1669bf926d47f57488f981f644affbc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogList:
+  - dialogLines:
+    - characterType: 5
+      text: "Buddy ? Mais qu'est-ce que tu fais l\xE0 ? Tu n'es pas avec Bibi ?"
+    - characterType: 0
+      text: "Aide moi, Elle a emmen\xE9 Robbie. Elle va aussi s'en prendre \xE0 toi
+        !"
+    - characterType: 5
+      text: "De quoi tu parles Buddy ? O\xF9 est Robbie ? Tu es tout le temps avec
+        lui normalement !"
+    - characterType: 0
+      text: "C'est ta maman, elle \xE9tait furieuse. On aurait dit qu'elle allait
+        faire mal \xE0 Robbie."
+    - characterType: 5
+      text: "Quoi, mais pourquoi ? Et o\xF9 est Nini, elle va bien ?"
+    - characterType: 0
+      text: "Ta s\u0153ur \xE9tait avec ta maman. Et elle rigolait des cris de Robbie
+        !"
+    - characterType: 5
+      text: "Mais j'ai entendu un cri tout \xE0 l'heure, c'\xE9tait Robbie alors
+        ?"
+    - characterType: 0
+      text: "Oui, il faut que tu te sauves Scott ! La porte de l'entr\xE9e est bloqu\xE9e
+        mais tu devrais pouvoir t'enfuir par la fen\xEAtre de ta chambre."
+    - characterType: 5
+      text: Mais, et Bibi ?
+    - characterType: 0
+      text: "On ira le sauver apr\xE8s, il faut d'abord que tu sois hors de danger
+        !"
+    InteractionID: 0
+    ContinueText: {fileID: 1744755983}
+    CollisionInteraction: {fileID: 119300050}
+    WantToDestroy: 1
+  HUDdialog: {fileID: 663748911}
+  continueButton: {fileID: 1744755981}
+  typingSpeed: 0.05
+  textDialog: {fileID: 2026015625}
+  characterNameText: {fileID: 866362820}
+  chapter1: {fileID: 0}
+  chapter2: {fileID: 0}
+  playerMovement1: {fileID: 1783933442}
+  ArrowsPositions: {fileID: 143807555}
+--- !u!114 &1781310149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781310145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b8ff33689c2c045a625c76c614c09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mindDialog:
+  - textString:
+    - "La porte d'entr\xE9e est ferm\xE9e \xE0 cl\xE9."
+    charactername: Scott
+    MindDialogID: 0
+    ContinueMindText: {fileID: 632282508}
+  - textString:
+    - Je devrait peut etre prendre Buddy avec moi.
+    charactername: Scott
+    MindDialogID: 1
+    ContinueMindText: {fileID: 632282508}
+  - textString:
+    - Je dois monter chercher Robbie.
+    charactername: Scott
+    MindDialogID: 2
+    ContinueMindText: {fileID: 632282508}
+  requiredBuddy: Buddy
+  DialogHUD: {fileID: 663748911}
+  continueButton: {fileID: 632282506}
+  trouverBuddy: 0
+  textDialog: {fileID: 2026015625}
+  textCharacterName: {fileID: 866362820}
+  typingSpeed: 0.05
+  CompleteIterraction: 0
+--- !u!43 &1781722459
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2304,256 +2537,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &1731004953
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 543754386506416418, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5392261887384733901, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: inventoryUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5392261887384733901, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: slotsParent
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: s_Chapter
-      value: 
-      objectReference: {fileID: 1781310149}
-    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: entryPoint
-      value: 
-      objectReference: {fileID: 2042806646}
-    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: directionalPoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: directionalPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 326830628}
-    - target: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: directionalPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 326830628}
-    - target: {fileID: 6785195082043464882, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_Name
-      value: ____Player Scott____ (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7160633404532072793, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 710740811}
-    - target: {fileID: 7160633404532072793, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-      propertyPath: m_InstanceId
-      value: -180332
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5392261887384733901, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
---- !u!1 &1744755981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5506394030114638589, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
-  m_PrefabInstance: {fileID: 1560975921}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1744755983 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1331719584765058562, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
-  m_PrefabInstance: {fileID: 1560975921}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744755981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1781310145
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1781310147}
-  - component: {fileID: 1781310148}
-  - component: {fileID: 1781310149}
-  - component: {fileID: 1781310150}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1781310147
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781310145}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1781310148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781310145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1669bf926d47f57488f981f644affbc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogList:
-  - dialogLines:
-    - characterType: 5
-      text: "Buddy ? Mais qu'est-ce que tu fais l\xE0 ? Tu n'es pas avec Bibi ?"
-    - characterType: 0
-      text: "Aide moi, Elle a emmen\xE9 Robbie. Elle va aussi s'en prendre \xE0 toi
-        !"
-    - characterType: 5
-      text: "De quoi tu parles Buddy ? O\xF9 est Robbie ? Tu es tout le temps avec
-        lui normalement !"
-    - characterType: 0
-      text: "C'est ta maman, elle \xE9tait furieuse. On aurait dit qu'elle allait
-        faire mal \xE0 Robbie."
-    - characterType: 5
-      text: "Quoi, mais pourquoi ? Et o\xF9 est Nini, elle va bien ?"
-    - characterType: 0
-      text: "Ta s\u0153ur \xE9tait avec ta maman. Et elle rigolait des cris de Robbie
-        !"
-    - characterType: 5
-      text: "Mais j'ai entendu un cri tout \xE0 l'heure, c'\xE9tait Robbie alors
-        ?"
-    - characterType: 0
-      text: "Oui, il faut que tu te sauves Scott ! La porte de l'entr\xE9e est bloqu\xE9e
-        mais tu devrais pouvoir t'enfuir par la fen\xEAtre de ta chambre."
-    - characterType: 5
-      text: Mais, et Bibi ?
-    - characterType: 0
-      text: "On ira le sauver apr\xE8s, il faut d'abord que tu sois hors de danger
-        !"
-    InteractionID: 0
-    ContinueText: {fileID: 1744755983}
-    CollisionInteraction: {fileID: 119300050}
-    WantToDestroy: 1
-  HUDdialog: {fileID: 663748911}
-  continueButton: {fileID: 1744755981}
-  typingSpeed: 0.05
-  textDialog: {fileID: 2026015625}
-  characterNameText: {fileID: 866362820}
-  chapter1: {fileID: 0}
-  chapter2: {fileID: 0}
-  playerMovement1: {fileID: 1783933442}
-  ArrowsPositions: {fileID: 143807555}
---- !u!114 &1781310149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781310145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b8ff33689c2c045a625c76c614c09a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mindDialog:
-  - textString:
-    - "La porte d'entr\xE9e est ferm\xE9e \xE0 cl\xE9."
-    charactername: Scott
-    MindDialogID: 0
-    ContinueMindText: {fileID: 632282508}
-  - textString:
-    - Je devrait peut etre prendre Buddy avec moi.
-    charactername: Scott
-    MindDialogID: 1
-    ContinueMindText: {fileID: 632282508}
-  - textString:
-    - Je dois monter chercher Robbie.
-    charactername: Scott
-    MindDialogID: 2
-    ContinueMindText: {fileID: 632282508}
-  requiredBuddy: Buddy
-  DialogHUD: {fileID: 663748911}
-  continueButton: {fileID: 632282506}
-  trouverBuddy: 0
-  textDialog: {fileID: 2026015625}
-  textCharacterName: {fileID: 866362820}
-  typingSpeed: 0.05
-  CompleteIterraction: 0
---- !u!114 &1781310150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781310145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5503948a3ad85a42bf7803da92251b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  isInventoryOpen: 0
-  LeaveInventory: {fileID: 0}
-  PlayerMovement1: {fileID: 1783933442}
 --- !u!114 &1783933442 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6676705514615235425, guid: 666099cd163f19444b097cc7687f2e80, type: 3}
