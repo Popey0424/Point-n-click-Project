@@ -42,6 +42,7 @@ public class DialogManager : MonoBehaviour
     private TextDialog currentDialog;
     private PlayerMovement playerMovement;
     public Chapter1 chapter1;
+    public Chapter2 chapter2;
     public PlayerMovement1 playerMovement1;
 
 
@@ -124,8 +125,13 @@ public class DialogManager : MonoBehaviour
             Debug.Log("Mort");
             chapter1.EndOfChapterOne();
         }
+        if (currentDialog != null && currentDialog.InteractionID == 6)
+        {
+            Debug.Log("Mort");
+            chapter2.EndOfChapterTwo();
+        }
 
-       
+
 
         if (playerMovement1 != null)
         {

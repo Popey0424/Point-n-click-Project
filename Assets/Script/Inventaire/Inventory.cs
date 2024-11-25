@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform slotsParent;
     [SerializeField] private GameObject slotPrefab;
 
+    public string StopScene;
+
     private void Awake()
     {
         if (Instance == null)
@@ -28,7 +30,16 @@ public class Inventory : MonoBehaviour
 
     }
 
-        public bool AddItem(Item itemToAdd)
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene().name == StopScene)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+    public bool AddItem(Item itemToAdd)
     {
         if (items.Count < maxSlots)
         {

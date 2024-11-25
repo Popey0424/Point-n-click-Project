@@ -35,6 +35,7 @@ public class DialogManagerIntro : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f;
     [SerializeField] private TextMeshProUGUI textDialog;
     [SerializeField] private TextMeshProUGUI characterNameText;
+    [SerializeField] private string GotoScene;
 
     private TextDialogIntro currentDialog;
     private int textId;
@@ -125,7 +126,7 @@ public class DialogManagerIntro : MonoBehaviour
 
     private void FadeComplete()
     {
-        SceneManager.LoadScene("Chapter1");
+        SceneManager.LoadScene(GotoScene);
     }
 }
 

@@ -53,4 +53,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RDCDownSceneChapter22.unity
     guid: 076070420843d3f4a9e72f6c4a3b037a
+  - enabled: 1
+    path: Assets/Scenes/RDCSceneChapter22.unity
+    guid: 8c28e25270c6e864ea392b0327139e62
+  - enabled: 1
+    path: Assets/Scenes/OutroScene.unity
+    guid: fce34bbbfd0c95f48bef7befcdb1268f
   m_configObjects: {}
