@@ -1243,13 +1243,15 @@ MonoBehaviour:
   dialogListIntro:
   - dialogLines:
     - characterType: 2
-      text: Blablabal
+      text: Allez hop ! Tout le monde au lit !
     - characterType: 4
-      text: 'Bonne nuit '
+      text: Bonne nuit maman !
     - characterType: 5
-      text: 'Bonne nuit '
-    - characterType: 2
-      text: Tchao la team
+      text: Bonne nuit !
+    - characterType: 3
+      text: "\xC0 demain maman !"
+    - characterType: 4
+      text: Bonne nuit Scott !
     InteractionID: 0
     ContinueText: {fileID: 260773797}
   HUDdialog: {fileID: 1634198656}
