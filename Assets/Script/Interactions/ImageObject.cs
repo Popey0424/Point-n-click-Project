@@ -30,14 +30,14 @@ public class ImageObject : MonoBehaviour
     [SerializeField] private Image RaycastImage;
 
 
-    private PlayerMovement playerMovement;
+    private PlayerMovement1 playerMovement1;
 
     private void Start()
     {
         RaycastImage.gameObject.SetActive(false);
         interactionImage.SetActive(false);
         backInteractionButton.gameObject.SetActive(true);
-        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerMovement1 = FindObjectOfType<PlayerMovement1>();
     }
 
     private void Update()
@@ -77,9 +77,9 @@ public class ImageObject : MonoBehaviour
         isImageOpen = true;
         interactionImage.SetActive(true);
         backInteractionButton.gameObject.SetActive(true);
-        if (playerMovement != null)
+        if (playerMovement1 != null)
         {
-            playerMovement.StopMovement(false);
+            playerMovement1.StopMovement(false);
         }
         DialogError();
 
@@ -111,9 +111,9 @@ public class ImageObject : MonoBehaviour
             interactionImage.SetActive(false);
             backInteractionButton.gameObject.SetActive(false);
             isImageOpen= false;
-            if (playerMovement != null)
+            if (playerMovement1 != null)
             {
-                playerMovement.StopMovement(true);
+                playerMovement1.StopMovement(true);
             }
         }
     }
@@ -125,9 +125,9 @@ public class ImageObject : MonoBehaviour
         textDialogError.gameObject.SetActive(true);
         continueButton.gameObject.SetActive(false);
 
-        if(playerMovement != null)
+        if(playerMovement1 != null)
         {
-            playerMovement.StopMovement(false);
+            playerMovement1.StopMovement(false);
             StartCoroutine(TypeLineError());
         }
 
