@@ -1256,7 +1256,7 @@ MonoBehaviour:
     ContinueText: {fileID: 260773797}
   HUDdialog: {fileID: 1634198656}
   continueButton: {fileID: 260773795}
-  typingSpeed: 0.05
+  typingSpeed: 0.02
   textDialog: {fileID: 2103146450}
   characterNameText: {fileID: 924843808}
   GotoScene: Chapter1

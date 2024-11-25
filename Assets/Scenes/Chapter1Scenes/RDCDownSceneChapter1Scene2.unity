@@ -2641,8 +2641,7 @@ MonoBehaviour:
   continueButton: {fileID: 296207325}
   trouverBuddy: 0
   textDialog: {fileID: 1101450007}
-  textCharacterName: {fileID: 1050965733}
-  typingSpeed: 0.05
+  typingSpeed: 0.02
   CompleteIterraction: 0
 --- !u!114 &1781310149
 MonoBehaviour:
@@ -2678,7 +2677,7 @@ MonoBehaviour:
     WantToDestroy: 1
   HUDdialog: {fileID: 1546712283}
   continueButton: {fileID: 1158062904}
-  typingSpeed: 0.05
+  typingSpeed: 0.02
   textDialog: {fileID: 1101450007}
   characterNameText: {fileID: 1050965733}
   chapter1: {fileID: 1781310150}
