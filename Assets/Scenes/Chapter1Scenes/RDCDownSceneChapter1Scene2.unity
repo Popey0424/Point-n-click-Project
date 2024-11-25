@@ -2858,6 +2858,7 @@ MonoBehaviour:
   textDialog: {fileID: 1101450007}
   characterNameText: {fileID: 1050965733}
   chapter1: {fileID: 1781310150}
+  chapter2: {fileID: 0}
   playerMovement1: {fileID: 597930837}
   ArrowsPositions: {fileID: 1043455262}
 --- !u!114 &1781310150
@@ -3247,6 +3248,10 @@ PrefabInstance:
     - target: {fileID: 1705659586244846217, guid: 258e332fdca5f1b4786bc4213d577349, type: 3}
       propertyPath: m_Name
       value: Mere_Idle_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980305127269571953, guid: 258e332fdca5f1b4786bc4213d577349, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
