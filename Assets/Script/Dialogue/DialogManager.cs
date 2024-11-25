@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class TextDialog
 {
-    public enum CharacterType { Buddy, Inconnu, Mother, Sister, Robbie, Scott }
+    public enum CharacterType { Buddy, Inconnu, Maman, Jennifer, Robbie, Scott }
 
     [System.Serializable]
     public class DialogLine

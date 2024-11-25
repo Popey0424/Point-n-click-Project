@@ -89,7 +89,7 @@ public class DialogManagerIntro : MonoBehaviour
     }
     public void OnClickContinueDialogIntro()
     {
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAh");
+        
         //if (currentDialog == null) return;
 
         if (textId < currentDialog.dialogLines.Count - 1)

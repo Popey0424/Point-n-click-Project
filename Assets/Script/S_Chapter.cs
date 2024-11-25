@@ -28,7 +28,7 @@ public class S_Chapter : MonoBehaviour
 
     [Header("Reference")]
     [SerializeField] private TextMeshProUGUI textDialog;
-    [SerializeField] private TextMeshProUGUI textCharacterName;
+   
     [SerializeField] private float typingSpeed = 0.05f;
 
     [Header("Trigger")]
@@ -40,6 +40,7 @@ public class S_Chapter : MonoBehaviour
     private void Start()
     {
         playerMovement1 = FindObjectOfType<PlayerMovement1>();
+   
     }
 
     private void Update()

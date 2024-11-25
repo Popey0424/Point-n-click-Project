@@ -1121,17 +1121,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1241775386 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4413276053095744741, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
-  m_PrefabInstance: {fileID: 1529106905}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1256332449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4236511798533580092, guid: ff5c2350c73eb78429553abcdb1dfd71, type: 3}
@@ -1199,7 +1188,7 @@ Transform:
   m_GameObject: {fileID: 1450301036}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.69, y: 1.08, z: 0}
+  m_LocalPosition: {x: 8.69, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1586,6 +1575,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7007034794973293238, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7645523041764524913, guid: a11ea2f5086d45345bf0fb04f9e78baa, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1849,7 +1842,6 @@ MonoBehaviour:
   continueButton: {fileID: 349494217}
   trouverBuddy: 0
   textDialog: {fileID: 312049796}
-  textCharacterName: {fileID: 1241775386}
   typingSpeed: 0.05
   CompleteIterraction: 0
 --- !u!1 &1856639730

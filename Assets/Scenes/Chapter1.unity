@@ -822,7 +822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Chapter 1
+  m_text: Chapitre 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f814ca653aa8da408f37d4434a0bada, type: 2}
   m_sharedMaterial: {fileID: -8385297011518015108, guid: 1f814ca653aa8da408f37d4434a0bada, type: 2}
